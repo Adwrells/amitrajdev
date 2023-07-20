@@ -477,8 +477,15 @@ nav ul li {
 	padding-top: 0px;
 }
 }
-.panorama-container {
+body {
+	margin: 0;
+	padding: 0;
+	overflow: hidden; /* Hide horizontal scrollbar */
+  }
+  
+  .panorama-container {
 	width: 100%;
+	max-width: 500%; /* Ensure the container doesn't exceed the screen width */
 	height: 500px; /* Adjust the height as needed */
 	overflow: hidden;
 	position: relative;
@@ -501,3 +508,11 @@ nav ul li {
 	  left: -100%; /* This value should be the width of your panorama photo */
 	}
   }
+  
+  /* Mobile responsiveness */
+  @media screen and (max-width: 767px) {
+	.panorama-container {
+	  height: 200px; /* Adjust the height for mobile devices */
+	}
+  }
+  
