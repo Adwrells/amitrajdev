@@ -485,7 +485,7 @@ nav ul li {
   }
   
   .panorama-container img {
-	width: 300%; /* This value should be 2 times the width of your panorama photo */
+	width: 200%; /* This value should be 2 times the width of your panorama photo */
 	height: 100%;
 	position: absolute;
 	top: 0;
