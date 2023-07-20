@@ -512,7 +512,7 @@ body {
   /* Mobile responsiveness */
   @media screen and (max-width: 767px) {
 	.panorama-container {
-	  height: 200px; /* Adjust the height for mobile devices */
+	  height: 100px; /* Adjust the height for mobile devices */
 	}
   }
   
