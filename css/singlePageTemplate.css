@@ -279,7 +279,8 @@ footer {
 	float: none;
 	display: none;
 }
-header nav ul {
+header nav ul
+ {
 }
 nav ul li {
 	margin-top: 0px;
@@ -509,4 +510,46 @@ nav ul li {
 	  height: 100px; /* Adjust the height for mobile devices */
 	}
   }
+  .sidebar {
+	width: 200px;
+	background-color: #f0f0f0;
+	padding: 20px;
+  }
   
+  .sidebar h2 {
+	margin-bottom: 10px;
+  }
+  
+  .sidebar ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+  }
+  
+  .sidebar li {
+	margin-bottom: 10px;
+  }
+  
+  .sidebar a {
+	text-decoration: none;
+	color: #333;
+  }
+  
+  .sidebar a:hover {
+	color: #007bff;
+  }
+  
+  .content {
+	flex: 1;
+	padding: 20px;
+  }
+  
+  /* Styling for sections */
+  section {
+	margin-bottom: 40px;
+  }
+  
+  section h1 {
+	font-size: 24px;
+	margin-bottom: 10px;
+  }
