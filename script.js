@@ -2,8 +2,8 @@ document.addEventListener("DOMContentLoaded", function() {
   // Function to convert Gregorian date to Bikram Samvat (BS) date
   function convertToBSDate(date) {
     const bsYearDiff = 56;
-    const bsMonthDiff = 8;
-    const bsDateDiff = 17;
+    const bsMonthDiff = 9;
+    const bsDateDiff = 16;
 
     const gYear = date.getFullYear();
     const gMonth = date.getMonth();
