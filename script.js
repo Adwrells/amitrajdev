@@ -1,8 +1,9 @@
 document.addEventListener("DOMContentLoaded", function() {
   // Function to convert Gregorian date to Bikram Samvat (BS) date
   function convertToBSDate(date) {
-    const bsYearDiff = 57;
+    const bsYearDiff = 56;
     const bsMonthDiff = 8;
+    const bsDateDiff = 17;
 
     const gYear = date.getFullYear();
     const gMonth = date.getMonth();
@@ -10,7 +11,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
     let bsYear = gYear + bsYearDiff;
     let bsMonth = gMonth + bsMonthDiff;
-    if (bsMonth >= 12) {
+    if (gDate >= bsDateDiff) {
+      bsMonth += 1;
+      bsDate = gDate - bsDateDiff;
+    } else {
+      bsDate = 30 - (bsDateDiff - gDate);
+    }
+
+    if (bsMonth > 12) {
       bsMonth -= 12;
       bsYear += 1;
     }
@@ -18,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
     return {
       year: bsYear,
       month: bsMonth,
-      date: gDate
+      date: bsDate
     };
   }
 
@@ -27,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const currentDate = new Date();
     const bsDate = convertToBSDate(currentDate);
 
-    const bsFormattedDate = `${bsDate.year}-${bsDate.month + 1}-${bsDate.date}`;
+    const bsFormattedDate = `${bsDate.year}-${bsDate.month}-${bsDate.date}`;
 
     let bsFormattedTime = `${currentDate.getHours() % 12}:${String(currentDate.getMinutes()).padStart(2, '0')}:${String(currentDate.getSeconds()).padStart(2, '0')}`;
     bsFormattedTime += currentDate.getHours() >= 12 ? ' PM' : ' AM';
