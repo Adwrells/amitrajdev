@@ -263,7 +263,7 @@ footer {
 /* Mobile */
 @media (max-width: 320px) {
 .logo {
-	width: 100%;
+	width: 200%;
 	text-align: center;
 	margin-top: 13px;
 	margin-right: 0px;
@@ -350,7 +350,7 @@ nav ul li {
 /* Small Tablets */
 @media (min-width: 321px)and (max-width: 767px) {
 .logo {
-	width: 100%;
+	width: 200%;
 	text-align: center;
 	margin-top: 13px;
 	margin-right: 0px;
@@ -457,7 +457,7 @@ nav ul li {
 /* Small Desktops */
 @media (min-width: 768px) and (max-width: 1096px) {
 .text_column {
-	width: 100%;
+	width: 200%;
 }
 .thumbnail {
 	width: 50%;
