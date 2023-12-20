@@ -481,7 +481,7 @@ nav ul li {
   .panorama-container {
 	width: 100%;
 	max-width: 500%; /* Ensure the container doesn't exceed the screen width */
-	height: 500px; /* Adjust the height as needed */
+	height: 800px; /* Adjust the height as needed */
 	overflow: hidden;
 	position: relative;
   }
