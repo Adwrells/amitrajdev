@@ -507,7 +507,7 @@ nav ul li {
   /* Mobile responsiveness */
   @media screen and (max-width: 767px) {
 	.panorama-container {
-	  height: 100px; /* Adjust the height for mobile devices */
+	  height: 500px; /* Adjust the height for mobile devices */
 	}
   }
   .sidebar {
