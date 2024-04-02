@@ -6,13 +6,31 @@
         body {
             background-color: black;
             color: white; /* Set text color to white for better visibility */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
         }
 
         .container {
             display: flex;
-            justify-content: flex-start;
-            align-items: center;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: stretch;
             height: 100vh;
+        }
+
+        .header {
+            flex: 0 0 80%; /* 80% height for header */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer {
+            flex: 0 0 20%; /* 20% height for footer */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #333; /* Dark background for footer */
         }
 
         .text {
@@ -32,9 +50,14 @@
 </head>
 <body>
     <div class="container">
-        <div class="text">
-            <h1 class="big-text">Amit Raj Dev</h1>
-            <p class="small-text">Electronics and Communication Engineer</p>
+        <div class="header">
+            <div class="text">
+                <h1 class="big-text">Amit Raj Dev</h1>
+                <p class="small-text">Electronics and Communication Engineer</p>
+            </div>
+        </div>
+        <div class="footer">
+            <p>This is the footer</p>
         </div>
     </div>
 </body>
