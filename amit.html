@@ -25,6 +25,14 @@
             align-items: center;
         }
 
+        .header-left, .header-right {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
         .footer {
             flex: 0 0 20%; /* 20% height for footer */
             display: flex;
@@ -46,18 +54,49 @@
             font-size: 18px;
             color: red;
         }
+
+        .additional-text {
+            font-size: 14px;
+            font-style: italic;
+            text-align: justify;
+        }
+
+        /* Media query for smaller screens */
+        @media screen and (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .header, .footer {
+                flex: 0 0 auto; /* Reset heights to auto */
+            }
+
+            .big-text {
+                font-size: 24px; /* Adjust font size for smaller screens */
+            }
+
+            .small-text {
+                font-size: 14px; /* Adjust font size for smaller screens */
+            }
+
+            .header-left, .header-right {
+                width: 100%; /* Full width for smaller screens */
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <div class="text">
+            <div class="header-left">
                 <h1 class="big-text">Amit Raj Dev</h1>
+            </div>
+            <div class="header-right">
                 <p class="small-text">Electronics and Communication Engineer</p>
             </div>
         </div>
         <div class="footer">
-            <p>This is the footer</p>
+            <p>Certified ECE Engineer</p>
         </div>
     </div>
 </body>
