@@ -7,7 +7,7 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
   return {
     plugins: [react()],
-    base: '/amitrajdev/', // GitHub Pages base path for your repo
+    base: '/', // Custom domain root path
     server: {
       port: 3000,
       host: '0.0.0.0',
