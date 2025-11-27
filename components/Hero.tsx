@@ -1,13 +1,30 @@
-import React from 'react';
-import { ArrowRight, MapPin } from 'lucide-react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { ArrowRight, Download, MapPin } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { PERSONAL_INFO } from '../constants';
 
+// Add your image filenames here
+const profileImages = [
+  '/images/profile.jpg'
+];
+
 const Hero: React.FC = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
   const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   };
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setCurrentImageIndex((prevIndex) =>
+        prevIndex === profileImages.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 5000); // Change image every 5 seconds
+
+    return () => clearTimeout(timer);
+  }, [currentImageIndex]);
 
   return (
     <section id="home" className="min-h-screen flex items-center pt-20 relative overflow-hidden">
@@ -53,6 +70,14 @@ const Hero: React.FC = () => {
               Contact Me 
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </a>
+            <a 
+              href="/CV_2025_DA_Amit Raj Dev.pdf" 
+              download
+              className="px-8 py-3 bg-slate-800 text-white font-medium rounded-lg border border-slate-700 hover:bg-slate-700 transition-all flex items-center gap-2 cursor-pointer"
+            >
+              Download CV 
+              <Download size={18} />
+            </a>
           </div>
         </motion.div>
 
@@ -65,12 +90,18 @@ const Hero: React.FC = () => {
           <div className="relative w-80 h-96 mx-auto">
             <div className="absolute inset-0 border-2 border-primary/30 rounded-2xl transform translate-x-4 translate-y-4"></div>
             <div className="absolute inset-0 bg-slate-800 rounded-2xl overflow-hidden shadow-2xl">
-              {/* Placeholder for Profile Image */}
-              <img 
-                src="https://picsum.photos/600/800" 
-                alt="Amit Raj Dev" 
-                className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity"
-              />
+              <AnimatePresence>
+                <motion.img
+                  key={currentImageIndex}
+                  src={profileImages[currentImageIndex]}
+                  alt="Amit Raj Dev"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 1.5 }}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </AnimatePresence>
               <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60"></div>
             </div>
           </div>
