@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Download, MapPin } from 'lucide-react';
+import { ArrowRight, MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { PERSONAL_INFO } from '../constants';
 
@@ -52,14 +52,6 @@ const Hero: React.FC = () => {
             >
               Contact Me 
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-            </a>
-            <a 
-              href="#" 
-              className="px-8 py-3 bg-slate-800 text-white font-medium rounded-lg border border-slate-700 hover:bg-slate-700 transition-all flex items-center gap-2 cursor-pointer"
-              onClick={(e) => { e.preventDefault(); alert("This would link to the PDF file."); }}
-            >
-              Download CV 
-              <Download size={18} />
             </a>
           </div>
         </motion.div>
