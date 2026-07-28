@@ -1,24 +1,69 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Amit Raj Dev | Data Analyst</title>
+    <title>Amit Raj Dev | Data Analyst — Cloud &amp; AI Governance</title>
     <meta name="description"
-        content="Portfolio of Amit Raj Dev, a Data Analyst and IT Support Engineer based in Toronto.">
+        content="Portfolio of Amit Raj Dev — a Data Analyst specializing in cloud infrastructure, CI/CD automation, and ethical AI governance. Based in Niagara Falls, Canada.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.amitrajdev.com.np/">
+    <meta name="theme-color" content="#0f172a">
+
+    <!-- Open Graph / social preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.amitrajdev.com.np/">
+    <meta property="og:title" content="Amit Raj Dev | Data Analyst — Cloud & AI Governance">
+    <meta property="og:description"
+        content="Data Analyst specializing in cloud infrastructure, CI/CD automation, and ethical AI governance.">
+    <meta property="og:image" content="https://www.amitrajdev.com.np/images/profile.jpg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Amit Raj Dev | Data Analyst — Cloud & AI Governance">
+    <meta name="twitter:description"
+        content="Data Analyst specializing in cloud infrastructure, CI/CD automation, and ethical AI governance.">
+    <meta name="twitter:image" content="https://www.amitrajdev.com.np/images/profile.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/images/favicon.svg">
+
+    <!-- Security: restrict script/style/asset origins to what this page actually uses -->
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self';
+        img-src 'self' data:;
+        font-src 'self' https://fonts.gstatic.com;
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+        script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://unpkg.com;
+        connect-src 'self';
+        object-src 'none';
+        base-uri 'self';
+        form-action 'self';
+        frame-ancestors 'self';
+    ">
+
+    <!-- Theme init (runs before paint to avoid a light/dark flash) -->
+    <script>
+        (function () {
+            try {
+                var stored = localStorage.getItem('ard-theme');
+                var wantsDark = stored ? stored === 'dark' : (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
+                if (wantsDark) document.documentElement.classList.add('dark');
+            } catch (e) { /* localStorage unavailable — fall back to light */ }
+        })();
+    </script>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
         rel="stylesheet">
 
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS (Play CDN — zero build step) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
@@ -27,192 +72,173 @@
                     },
                     colors: {
                         primary: {
-                            DEFAULT: '#2dd4bf', // Teal 400
-                            dark: '#14b8a6', // Teal 500
-                        },
-                        background: '#0f172a', // Slate 900
-                        surface: '#1e293b', // Slate 800
+                            50: '#f0fdfa', 100: '#ccfbf1', 200: '#99f6e4', 300: '#5eead4',
+                            400: '#2dd4bf', 500: '#14b8a6', 600: '#0d9488', 700: '#0f766e', 800: '#115e59'
+                        }
                     }
                 }
             }
         }
     </script>
 
-    <!-- Icons (Lucide) -->
+    <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <style>
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: #0f172a;
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #334155;
-            border-radius: 5px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #475569;
-        }
-
-        /* Animation Utilities */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Stagger delays */
-        .delay-100 {
-            transition-delay: 100ms;
-        }
-
-        .delay-200 {
-            transition-delay: 200ms;
-        }
-
-        .delay-300 {
-            transition-delay: 300ms;
-        }
-    </style>
-    <script type="importmap">
-{
-  "imports": {
-    "react": "https://aistudiocdn.com/react@^19.2.0",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.24"
-  }
-}
-</script>
-    <link rel="stylesheet" href="/index.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
 </head>
 
-<body class="bg-background text-slate-300 antialiased selection:bg-primary selection:text-slate-900">
+<body
+    class="bg-white text-slate-600 dark:bg-slate-950 dark:text-slate-400 antialiased selection:bg-primary-400 selection:text-slate-900 font-sans">
+
+    <a href="#main" class="skip-link">Skip to content</a>
+    <div id="scroll-progress"></div>
+
+    <!-- Brand icon sprite (LinkedIn/GitHub logos were dropped from lucide's icon set) -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+        <symbol id="icon-linkedin" viewBox="0 0 24 24">
+            <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+        </symbol>
+        <symbol id="icon-github" viewBox="0 0 24 24">
+            <path
+                d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.605-2.665-.303-5.466-1.334-5.466-5.93 0-1.31.468-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.955-.266 1.98-.399 3-.404 1.02.005 2.047.138 3.006.404 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
+        </symbol>
+    </svg>
 
     <!-- Header -->
-    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-6">
+    <header id="main-header"
+        class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-6 bg-white/80 dark:bg-slate-950/80">
         <div class="container mx-auto px-6 flex justify-between items-center">
             <a href="#home"
-                class="text-2xl font-bold font-display tracking-tighter text-slate-100 hover:text-primary transition-colors">
-                ARD<span class="text-primary">.</span>
+                class="text-2xl font-bold font-display tracking-tighter text-slate-900 dark:text-slate-100 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                ARD<span class="text-primary-600 dark:text-primary-400">.</span>
             </a>
 
             <!-- Desktop Nav -->
-            <nav class="hidden md:flex items-center gap-8">
-                <a href="#about"
-                    class="text-sm font-medium text-slate-400 hover:text-primary transition-colors">About</a>
-                <a href="#experience"
-                    class="text-sm font-medium text-slate-400 hover:text-primary transition-colors">Experience</a>
-                <a href="#skills"
-                    class="text-sm font-medium text-slate-400 hover:text-primary transition-colors">Skills</a>
-                <a href="#projects"
-                    class="text-sm font-medium text-slate-400 hover:text-primary transition-colors">Projects</a>
+            <nav class="hidden lg:flex items-center gap-6" aria-label="Primary">
+                <a href="#about" data-section="about"
+                    class="nav-link text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">About</a>
+                <a href="#experience" data-section="experience"
+                    class="nav-link text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Experience</a>
+                <a href="#skills" data-section="skills"
+                    class="nav-link text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Skills</a>
+                <a href="#projects" data-section="projects"
+                    class="nav-link text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Projects</a>
+                <a href="#education" data-section="education"
+                    class="nav-link text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Education</a>
                 <a href="academic-projects.html"
-                    class="text-sm font-medium text-slate-400 hover:text-primary transition-colors">Academic
-                    Projects</a>
-                <a href="#contact"
-                    class="text-sm font-medium text-slate-400 hover:text-primary transition-colors">Contact</a>
-                <div class="h-4 w-px bg-slate-700 mx-2"></div>
-                <div class="flex items-center gap-4">
-                    <a href="https://linkedin.com/in/amitdevraj" target="_blank"
-                        class="text-slate-400 hover:text-primary transition-colors">
-                        <i data-lucide="linkedin" class="w-[18px]"></i>
+                    class="text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Academic</a>
+                <a href="#contact" data-section="contact"
+                    class="nav-link text-sm font-medium text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">Contact</a>
+                <div class="h-4 w-px bg-slate-200 dark:bg-slate-700 mx-1"></div>
+                <div class="flex items-center gap-3">
+                    <a href="https://linkedin.com/in/amitdevraj" target="_blank" rel="noopener noreferrer"
+                        aria-label="LinkedIn"
+                        class="text-slate-500 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                        <svg class="w-[18px] h-[18px]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-linkedin"/></svg>
                     </a>
-                    <a href="mailto:adwrells@gmail.com" class="text-slate-400 hover:text-primary transition-colors">
+                    <a href="https://github.com/Adwrells" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
+                        class="text-slate-500 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
+                        <svg class="w-[18px] h-[18px]" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-github"/></svg>
+                    </a>
+                    <a href="mailto:adwrells@gmail.com" aria-label="Email"
+                        class="text-slate-500 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors">
                         <i data-lucide="mail" class="w-[18px]"></i>
                     </a>
+                    <button id="theme-toggle" type="button" aria-pressed="false" aria-label="Toggle dark mode"
+                        class="relative w-9 h-9 flex items-center justify-center rounded-lg text-slate-500 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                        <span class="icon-sun"><i data-lucide="sun" class="w-[18px] h-[18px]"></i></span>
+                        <span class="icon-moon"><i data-lucide="moon" class="w-[18px] h-[18px]"></i></span>
+                    </button>
                 </div>
             </nav>
 
-            <!-- Mobile Toggle -->
-            <button id="menu-btn" class="md:hidden text-slate-100 p-2">
-                <i data-lucide="menu" class="w-6 h-6"></i>
-            </button>
+            <!-- Mobile Controls -->
+            <div class="lg:hidden flex items-center gap-2">
+                <button id="theme-toggle-mobile" type="button" aria-pressed="false" aria-label="Toggle dark mode"
+                    class="relative w-9 h-9 flex items-center justify-center rounded-lg text-slate-500 dark:text-slate-400">
+                    <span class="icon-sun"><i data-lucide="sun" class="w-[18px] h-[18px]"></i></span>
+                    <span class="icon-moon"><i data-lucide="moon" class="w-[18px] h-[18px]"></i></span>
+                </button>
+                <button id="menu-btn" class="text-slate-900 dark:text-slate-100 p-2" aria-label="Open menu"
+                    aria-expanded="false" aria-controls="mobile-menu">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
         </div>
 
         <!-- Mobile Menu -->
         <div id="mobile-menu"
-            class="hidden md:hidden absolute top-full left-0 right-0 bg-surface border-b border-slate-700 shadow-2xl p-6 flex flex-col gap-4">
-            <a href="#about" class="mobile-link text-lg font-medium text-slate-300 hover:text-primary">About</a>
-            <a href="#experience"
-                class="mobile-link text-lg font-medium text-slate-300 hover:text-primary">Experience</a>
-            <a href="#skills" class="mobile-link text-lg font-medium text-slate-300 hover:text-primary">Skills</a>
-            <a href="#projects" class="mobile-link text-lg font-medium text-slate-300 hover:text-primary">Projects</a>
-            <a href="academic-projects.html"
-                class="mobile-link text-lg font-medium text-slate-300 hover:text-primary">Academic Projects</a>
-            <a href="#contact" class="mobile-link text-lg font-medium text-slate-300 hover:text-primary">Contact</a>
-            <div class="flex gap-4 mt-4 pt-4 border-t border-slate-700">
-                <a href="https://linkedin.com/in/amitdevraj" target="_blank"
-                    class="flex items-center gap-2 text-slate-400 hover:text-primary">
-                    <i data-lucide="linkedin" class="w-5"></i> LinkedIn
+            class="hidden lg:hidden absolute top-full left-0 right-0 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-xl p-6 flex flex-col gap-4">
+            <a href="#about" class="mobile-link text-lg font-medium text-slate-700 dark:text-slate-300">About</a>
+            <a href="#experience" class="mobile-link text-lg font-medium text-slate-700 dark:text-slate-300">Experience</a>
+            <a href="#skills" class="mobile-link text-lg font-medium text-slate-700 dark:text-slate-300">Skills</a>
+            <a href="#projects" class="mobile-link text-lg font-medium text-slate-700 dark:text-slate-300">Projects</a>
+            <a href="#education" class="mobile-link text-lg font-medium text-slate-700 dark:text-slate-300">Education</a>
+            <a href="academic-projects.html" class="mobile-link text-lg font-medium text-primary-600 dark:text-primary-400">Academic
+                Projects</a>
+            <a href="#contact" class="mobile-link text-lg font-medium text-slate-700 dark:text-slate-300">Contact</a>
+            <div class="flex gap-5 mt-4 pt-4 border-t border-slate-200 dark:border-slate-800">
+                <a href="https://linkedin.com/in/amitdevraj" target="_blank" rel="noopener noreferrer"
+                    class="flex items-center gap-2 text-slate-500 dark:text-slate-400">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-linkedin"/></svg> LinkedIn
                 </a>
-                <a href="mailto:adwrells@gmail.com" class="flex items-center gap-2 text-slate-400 hover:text-primary">
+                <a href="https://github.com/Adwrells" target="_blank" rel="noopener noreferrer"
+                    class="flex items-center gap-2 text-slate-500 dark:text-slate-400">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-github"/></svg> GitHub
+                </a>
+                <a href="mailto:adwrells@gmail.com" class="flex items-center gap-2 text-slate-500 dark:text-slate-400">
                     <i data-lucide="mail" class="w-5"></i> Email
                 </a>
             </div>
         </div>
     </header>
 
-    <main>
+    <main id="main">
         <!-- Hero Section -->
         <section id="home" class="min-h-screen flex items-center pt-20 relative overflow-hidden">
-            <!-- Background decoration -->
-            <div class="absolute top-0 right-0 w-1/3 h-1/3 bg-primary/10 blur-[120px] rounded-full pointer-events-none">
+            <div class="absolute inset-0 grid-backdrop pointer-events-none"></div>
+            <div class="absolute top-0 right-0 w-1/3 h-1/3 bg-primary-400/10 blur-[120px] rounded-full pointer-events-none">
             </div>
-            <div
-                class="absolute bottom-0 left-0 w-1/3 h-1/3 bg-blue-600/10 blur-[120px] rounded-full pointer-events-none">
+            <div class="absolute bottom-0 left-0 w-1/3 h-1/3 bg-sky-500/10 blur-[120px] rounded-full pointer-events-none">
             </div>
 
             <div class="container mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
                 <div class="reveal active">
                     <div
-                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800/50 border border-slate-700 text-primary text-sm font-medium mb-6">
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 text-primary-700 dark:text-primary-400 text-sm font-medium mb-6">
                         <span class="relative flex h-2 w-2">
                             <span
-                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-500 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-primary-500"></span>
                         </span>
                         Available for new opportunities
                     </div>
 
-                    <h1 class="text-5xl md:text-7xl font-bold font-display text-white leading-tight mb-6">
+                    <h1 class="text-5xl md:text-7xl font-bold font-display text-slate-900 dark:text-white leading-tight mb-6">
                         Hi, I'm <br />
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-white to-slate-400">
-                            Amit Raj Dev
-                        </span>
+                        <span class="text-gradient">Amit Raj Dev</span>
                     </h1>
 
-                    <h2 class="text-2xl md:text-3xl text-primary font-medium mb-6">
-                        Data Analyst | IT Support Engineer
+                    <h2 class="text-xl md:text-2xl text-primary-700 dark:text-primary-400 font-medium mb-6">
+                        Data Analyst · Cloud Infrastructure · AI Governance
                     </h2>
 
-                    <p class="text-lg text-slate-400 mb-8 max-w-lg leading-relaxed">
-                        Transforming raw data into actionable insights and robust infrastructure. Based in <span
-                            class="text-slate-200 inline-flex items-center gap-1"><i data-lucide="map-pin"
-                                class="w-4"></i> Toronto, Canada</span>.
+                    <p class="text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-lg leading-relaxed">
+                        I build trustworthy, production-ready data systems — from bias-detection platforms for
+                        healthcare AI to secure, automated cloud infrastructure. Based in <span
+                            class="text-slate-800 dark:text-slate-200 inline-flex items-center gap-1"><i
+                                data-lucide="map-pin" class="w-4"></i> Niagara Falls, Canada</span>.
                     </p>
 
                     <div class="flex flex-wrap gap-4">
                         <a href="#contact"
-                            class="px-8 py-3 bg-primary text-slate-900 font-bold rounded-lg hover:bg-primary-dark transition-all flex items-center gap-2 group">
+                            class="px-8 py-3 bg-primary-600 dark:bg-primary-400 text-white dark:text-slate-900 font-bold rounded-lg hover:bg-primary-700 dark:hover:bg-primary-300 transition-all flex items-center gap-2 group">
                             Contact Me
-                            <i data-lucide="arrow-right"
-                                class="w-[18px] group-hover:translate-x-1 transition-transform"></i>
+                            <i data-lucide="arrow-right" class="w-[18px] group-hover:translate-x-1 transition-transform"></i>
                         </a>
-                        <a href="https://raw.githubusercontent.com/Adwrells/amitrajdev/main/CV_2025_DA_Amit%20Raj%20Dev.pdf"
-                            download
-                            class="px-8 py-3 bg-slate-800 text-white font-medium rounded-lg border border-slate-700 hover:bg-slate-700 transition-all flex items-center gap-2">
+                        <a href="/CV_2025_DA_Amit%20Raj%20Dev.pdf" download
+                            class="px-8 py-3 bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white font-medium rounded-lg border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all flex items-center gap-2">
                             Download CV
                             <i data-lucide="download" class="w-[18px]"></i>
                         </a>
@@ -222,12 +248,14 @@
                 <div class="reveal delay-200 hidden md:block relative">
                     <div class="relative w-80 h-96 mx-auto">
                         <div
-                            class="absolute inset-0 border-2 border-primary/30 rounded-2xl transform translate-x-4 translate-y-4">
+                            class="absolute inset-0 border-2 border-primary-500/30 rounded-2xl transform translate-x-4 translate-y-4">
                         </div>
-                        <div class="absolute inset-0 bg-slate-800 rounded-2xl overflow-hidden shadow-2xl">
-                            <img src="/images/profile.jpg" alt="Amit Raj Dev"
-                                class="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity">
-                            <div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60">
+                        <div
+                            class="absolute inset-0 bg-slate-100 dark:bg-slate-800 rounded-2xl overflow-hidden shadow-2xl">
+                            <img src="/images/profile.jpg" alt="Portrait of Amit Raj Dev" width="320" height="384"
+                                class="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity">
+                            <div
+                                class="absolute inset-0 bg-gradient-to-t from-white dark:from-slate-950 to-transparent opacity-30 dark:opacity-60">
                             </div>
                         </div>
                     </div>
@@ -236,64 +264,71 @@
         </section>
 
         <!-- About Section -->
-        <section id="about" class="py-24 bg-surface/30">
+        <section id="about" class="py-24 bg-slate-50 dark:bg-slate-900/30">
             <div class="container mx-auto px-6">
                 <div class="max-w-4xl mx-auto reveal">
                     <div class="text-center mb-16">
-                        <h2 class="text-sm font-bold text-primary uppercase tracking-widest mb-2">About Me</h2>
-                        <h3 class="text-3xl md:text-4xl font-display font-bold text-white">Engineering Logic meets Data
-                            Strategy</h3>
+                        <h2 class="text-sm font-bold text-primary-600 dark:text-primary-400 uppercase tracking-widest mb-2">
+                            About Me</h2>
+                        <h3 class="text-3xl md:text-4xl font-display font-bold text-slate-900 dark:text-white">Where
+                            Data Engineering Meets Ethical AI</h3>
                     </div>
 
-                    <div class="grid md:grid-cols-3 gap-8 mb-16">
+                    <div class="grid md:grid-cols-3 gap-6 mb-16">
                         <div
-                            class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-primary/50 transition-colors">
-                            <i data-lucide="database" class="text-primary mb-4 w-8 h-8"></i>
-                            <h4 class="text-xl font-bold text-white mb-2">Data Analytics</h4>
-                            <p class="text-slate-400 text-sm">Transforming complex datasets into clear, actionable
-                                business intelligence using SQL and Python.</p>
+                            class="card-hover bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-primary-500/50 hover:shadow-lg dark:hover:shadow-none">
+                            <i data-lucide="database" class="text-primary-600 dark:text-primary-400 mb-4 w-8 h-8"></i>
+                            <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Data Analytics</h4>
+                            <p class="text-slate-500 dark:text-slate-400 text-sm">Turning complex datasets into clear,
+                                actionable insight using SQL, Python, and modern BI tools.</p>
                         </div>
                         <div
-                            class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-primary/50 transition-colors">
-                            <i data-lucide="terminal" class="text-primary mb-4 w-8 h-8"></i>
-                            <h4 class="text-xl font-bold text-white mb-2">Development</h4>
-                            <p class="text-slate-400 text-sm">Automating workflows and building visualization tools with
-                                code and modern frameworks.</p>
+                            class="card-hover bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-primary-500/50 hover:shadow-lg dark:hover:shadow-none">
+                            <i data-lucide="cloud" class="text-primary-600 dark:text-primary-400 mb-4 w-8 h-8"></i>
+                            <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Cloud &amp; DevOps</h4>
+                            <p class="text-slate-500 dark:text-slate-400 text-sm">Architecting secure, scalable AWS
+                                environments with automated CI/CD pipelines and containerized deployments.</p>
                         </div>
                         <div
-                            class="bg-slate-800 p-6 rounded-xl border border-slate-700 hover:border-primary/50 transition-colors">
-                            <i data-lucide="shield" class="text-primary mb-4 w-8 h-8"></i>
-                            <h4 class="text-xl font-bold text-white mb-2">IT Infrastructure</h4>
-                            <p class="text-slate-400 text-sm">Ensuring robust security and networking uptime for
-                                critical business operations.</p>
+                            class="card-hover bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-primary-500/50 hover:shadow-lg dark:hover:shadow-none">
+                            <i data-lucide="shield-check" class="text-primary-600 dark:text-primary-400 mb-4 w-8 h-8"></i>
+                            <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2">AI Governance &amp;
+                                Security</h4>
+                            <p class="text-slate-500 dark:text-slate-400 text-sm">Building transparent, fair AI systems
+                                — and hardening the infrastructure that powers them.</p>
                         </div>
                     </div>
 
-                    <div class="bg-slate-900 rounded-2xl p-8 md:p-12 border border-slate-800">
-                        <p class="text-lg text-slate-300 leading-relaxed mb-8">
-                            Data analytics professional with an Engineering background and proven IT support experience.
-                            I specialize in statistical analysis, data visualization, and database management, combined
-                            with strong technical problem-solving skills from hands-on IT infrastructure work. I
-                            leverage data-driven technical analysis and strategic decision-making to optimize
-                            operational efficiency and drive organizational growth.
+                    <div class="bg-white dark:bg-slate-900 rounded-2xl p-8 md:p-12 border border-slate-200 dark:border-slate-800">
+                        <p class="text-lg text-slate-700 dark:text-slate-300 leading-relaxed mb-8">
+                            I'm a data analytics professional with a background in Electronics &amp; Communication
+                            Engineering and 5+ years in IT, now completing a Master of Data Analytics at the
+                            University of Niagara Falls Canada. My recent work sits at the intersection of data
+                            engineering, cloud infrastructure, and ethical AI — most recently building the
+                            <span class="text-slate-900 dark:text-white font-medium">DDFA Platform</span>, an
+                            Ethical AI &amp; Bias Detection system for healthcare, at Synod Intellicare. I'm equally
+                            drawn to cybersecurity: understanding how data systems can be protected is a natural
+                            extension of building systems that aren't just smart, but trustworthy.
                         </p>
 
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t border-slate-800">
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 pt-8 border-t border-slate-200 dark:border-slate-800">
                             <div>
-                                <p class="text-slate-500 text-sm uppercase tracking-wider mb-1">Experience</p>
-                                <p class="text-xl font-bold text-white">4+ Years</p>
+                                <p class="text-slate-400 dark:text-slate-500 text-sm uppercase tracking-wider mb-1">Experience</p>
+                                <p class="text-xl font-bold text-slate-900 dark:text-white">5+ Years</p>
+                                <p class="text-[11px] text-slate-400 dark:text-slate-500 mt-1">4-mo. Data Analyst
+                                    co-op at Synod Intellicare</p>
                             </div>
                             <div>
-                                <p class="text-slate-500 text-sm uppercase tracking-wider mb-1">Focus</p>
-                                <p class="text-xl font-bold text-white">Analytics & IT</p>
+                                <p class="text-slate-400 dark:text-slate-500 text-sm uppercase tracking-wider mb-1">Focus</p>
+                                <p class="text-xl font-bold text-slate-900 dark:text-white">Data, Cloud &amp; AI</p>
                             </div>
                             <div>
-                                <p class="text-slate-500 text-sm uppercase tracking-wider mb-1">Location</p>
-                                <p class="text-xl font-bold text-white">Toronto</p>
+                                <p class="text-slate-400 dark:text-slate-500 text-sm uppercase tracking-wider mb-1">Location</p>
+                                <p class="text-xl font-bold text-slate-900 dark:text-white">Niagara Falls</p>
                             </div>
                             <div>
-                                <p class="text-slate-500 text-sm uppercase tracking-wider mb-1">Education</p>
-                                <p class="text-xl font-bold text-white">Master's</p>
+                                <p class="text-slate-400 dark:text-slate-500 text-sm uppercase tracking-wider mb-1">Education</p>
+                                <p class="text-xl font-bold text-slate-900 dark:text-white">Master's, 2026</p>
                             </div>
                         </div>
                     </div>
@@ -302,122 +337,192 @@
         </section>
 
         <!-- Experience Section -->
-        <section id="experience" class="py-24 bg-background">
+        <section id="experience" class="py-24 bg-white dark:bg-slate-950">
             <div class="container mx-auto px-6">
                 <div class="mb-16 text-center reveal">
-                    <h2 class="text-sm font-bold text-primary uppercase tracking-widest mb-2">Career Path</h2>
-                    <h3 class="text-3xl md:text-4xl font-display font-bold text-white">Professional Experience</h3>
+                    <h2 class="text-sm font-bold text-primary-600 dark:text-primary-400 uppercase tracking-widest mb-2">
+                        Career Path</h2>
+                    <h3 class="text-3xl md:text-4xl font-display font-bold text-slate-900 dark:text-white">Professional
+                        Experience</h3>
                 </div>
 
                 <div class="max-w-4xl mx-auto relative">
-                    <!-- Vertical Line -->
                     <div
-                        class="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-slate-800 transform md:-translate-x-1/2">
+                        class="absolute left-0 md:left-1/2 top-0 bottom-0 w-px bg-slate-200 dark:bg-slate-800 transform md:-translate-x-1/2">
                     </div>
 
                     <div class="space-y-12">
-                        <!-- Exp 1 -->
+                        <!-- Exp 1 : Synod Intellicare -->
                         <div class="relative flex flex-col md:flex-row gap-8 md:flex-row-reverse reveal">
                             <div
-                                class="absolute left-[-5px] md:left-1/2 md:-translate-x-[5px] top-6 w-3 h-3 rounded-full bg-primary ring-4 ring-background">
+                                class="timeline-dot absolute left-[-5px] md:left-1/2 md:-translate-x-[5px] top-6 w-3 h-3 rounded-full bg-primary-500 ring-4 ring-white dark:ring-slate-950 text-primary-500">
                             </div>
                             <div class="w-full md:w-1/2 pl-6 md:pl-0 md:px-8">
                                 <div
-                                    class="bg-surface p-6 rounded-xl border border-slate-700/50 hover:border-primary/30 transition-all shadow-lg hover:shadow-primary/5 group">
+                                    class="card-hover bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-700/50 hover:border-primary-500/40 shadow-sm hover:shadow-lg dark:shadow-none group">
+                                    <div class="flex flex-col gap-1 mb-4">
+                                        <span
+                                            class="inline-block w-fit px-2 py-0.5 rounded-full text-[11px] font-semibold uppercase tracking-wide bg-primary-50 dark:bg-primary-400/10 text-primary-700 dark:text-primary-400 mb-1">Co-op
+                                            · Most Recent</span>
+                                        <h4
+                                            class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                                            Cloud Infrastructure Intern (Data Analyst)</h4>
+                                        <h5 class="text-lg text-slate-700 dark:text-slate-300 font-medium">Synod Intellicare</h5>
+                                        <div class="flex flex-wrap gap-4 text-xs text-slate-400 dark:text-slate-500 mt-2">
+                                            <span class="flex items-center gap-1"><i data-lucide="calendar"
+                                                    class="w-[14px]"></i> Feb 2026 - May 2026 · 4-month co-op</span>
+                                            <span class="flex items-center gap-1"><i data-lucide="map-pin"
+                                                    class="w-[14px]"></i> Brantford, ON</span>
+                                        </div>
+                                    </div>
+                                    <ul class="space-y-2">
+                                        <li class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed flex items-start gap-2">
+                                            <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary-500/60 shrink-0"></span>
+                                            Architected and provisioned 3 partitioned AWS environments (Dev, Staging,
+                                            Production) for the DDFA Platform.
+                                        </li>
+                                        <li class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed flex items-start gap-2">
+                                            <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary-500/60 shrink-0"></span>
+                                            Engineered automated CI/CD pipelines with GitHub Actions and AWS CodeDeploy
+                                            to streamline integration and deployment.
+                                        </li>
+                                        <li class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed flex items-start gap-2">
+                                            <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary-500/60 shrink-0"></span>
+                                            Hardened cloud security with IAM access controls and KMS secrets
+                                            management.
+                                        </li>
+                                        <li class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed flex items-start gap-2">
+                                            <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary-500/60 shrink-0"></span>
+                                            Built Python-based web dashboards giving stakeholders real-time visibility
+                                            into system and project metrics.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Exp 2 : A.R.D. Nirman Sewa -->
+                        <div class="relative flex flex-col md:flex-row gap-8 reveal">
+                            <div
+                                class="timeline-dot absolute left-[-5px] md:left-1/2 md:-translate-x-[5px] top-6 w-3 h-3 rounded-full bg-primary-500 ring-4 ring-white dark:ring-slate-950 text-primary-500">
+                            </div>
+                            <div class="w-full md:w-1/2 pl-6 md:pl-0 md:px-8">
+                                <div
+                                    class="card-hover bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-700/50 hover:border-primary-500/40 shadow-sm hover:shadow-lg dark:shadow-none group">
                                     <div class="flex flex-col gap-1 mb-4">
                                         <h4
-                                            class="text-xl font-bold text-white group-hover:text-primary transition-colors">
+                                            class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
                                             IT Support Engineer</h4>
-                                        <h5 class="text-lg text-slate-300 font-medium">A.R.D. Nirman Sewa & IT</h5>
-                                        <div class="flex flex-wrap gap-4 text-xs text-slate-500 mt-2">
+                                        <h5 class="text-lg text-slate-700 dark:text-slate-300 font-medium">A.R.D. Nirman
+                                            Sewa &amp; IT Solutions</h5>
+                                        <div class="flex flex-wrap gap-4 text-xs text-slate-400 dark:text-slate-500 mt-2">
                                             <span class="flex items-center gap-1"><i data-lucide="calendar"
                                                     class="w-[14px]"></i> Dec 2023 - Jan 2025</span>
                                             <span class="flex items-center gap-1"><i data-lucide="map-pin"
-                                                    class="w-[14px]"></i> Remote / Hybrid</span>
+                                                    class="w-[14px]"></i> Sagarmatha, Nepal</span>
                                         </div>
                                     </div>
                                     <ul class="space-y-2">
-                                        <li class="text-slate-400 text-sm leading-relaxed flex items-start gap-2">
-                                            <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary/50 shrink-0"></span>
-                                            Managed overall IT infrastructure and security protocols, ensuring 99.9%
-                                            uptime.
+                                        <li class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed flex items-start gap-2">
+                                            <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary-500/60 shrink-0"></span>
+                                            Managed IT infrastructure and security protocols, ensuring 99.9% uptime for
+                                            critical systems.
                                         </li>
-                                        <li class="text-slate-400 text-sm leading-relaxed flex items-start gap-2">
-                                            <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary/50 shrink-0"></span>
-                                            Performed advanced troubleshooting for networking devices, reducing downtime
-                                            by 20%.
+                                        <li class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed flex items-start gap-2">
+                                            <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary-500/60 shrink-0"></span>
+                                            Performed advanced troubleshooting for networking devices, reducing
+                                            downtime by 20%.
+                                        </li>
+                                        <li class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed flex items-start gap-2">
+                                            <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary-500/60 shrink-0"></span>
+                                            Delivered freelance IT support, operations, and maintenance across client
+                                            environments.
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
 
-                        <!-- Exp 2 -->
-                        <div class="relative flex flex-col md:flex-row gap-8 reveal">
-                            <div
-                                class="absolute left-[-5px] md:left-1/2 md:-translate-x-[5px] top-6 w-3 h-3 rounded-full bg-primary ring-4 ring-background">
-                            </div>
-                            <div class="w-full md:w-1/2 pl-6 md:pl-0 md:px-8">
-                                <div
-                                    class="bg-surface p-6 rounded-xl border border-slate-700/50 hover:border-primary/30 transition-all shadow-lg hover:shadow-primary/5 group">
-                                    <div class="flex flex-col gap-1 mb-4">
-                                        <h4
-                                            class="text-xl font-bold text-white group-hover:text-primary transition-colors">
-                                            IT Support Engineer</h4>
-                                        <h5 class="text-lg text-slate-300 font-medium">Dishhome</h5>
-                                        <div class="flex flex-wrap gap-4 text-xs text-slate-500 mt-2">
-                                            <span class="flex items-center gap-1"><i data-lucide="calendar"
-                                                    class="w-[14px]"></i> Nov 2022 - Oct 2023</span>
-                                            <span class="flex items-center gap-1"><i data-lucide="map-pin"
-                                                    class="w-[14px]"></i> Nepal</span>
-                                        </div>
-                                    </div>
-                                    <ul class="space-y-2">
-                                        <li class="text-slate-400 text-sm leading-relaxed flex items-start gap-2">
-                                            <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary/50 shrink-0"></span>
-                                            Configured networking, routers, and switches, optimizing LAN performance.
-                                        </li>
-                                        <li class="text-slate-400 text-sm leading-relaxed flex items-start gap-2">
-                                            <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary/50 shrink-0"></span>
-                                            Managed firewall configurations and system-level security policies.
-                                        </li>
-                                        <li class="text-slate-400 text-sm leading-relaxed flex items-start gap-2">
-                                            <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary/50 shrink-0"></span>
-                                            Oversaw CCTV installation and biometric setups.
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Exp 3 -->
+                        <!-- Exp 3 : DishHome -->
                         <div class="relative flex flex-col md:flex-row gap-8 md:flex-row-reverse reveal">
                             <div
-                                class="absolute left-[-5px] md:left-1/2 md:-translate-x-[5px] top-6 w-3 h-3 rounded-full bg-primary ring-4 ring-background">
+                                class="timeline-dot absolute left-[-5px] md:left-1/2 md:-translate-x-[5px] top-6 w-3 h-3 rounded-full bg-primary-500 ring-4 ring-white dark:ring-slate-950 text-primary-500">
                             </div>
                             <div class="w-full md:w-1/2 pl-6 md:pl-0 md:px-8">
                                 <div
-                                    class="bg-surface p-6 rounded-xl border border-slate-700/50 hover:border-primary/30 transition-all shadow-lg hover:shadow-primary/5 group">
+                                    class="card-hover bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-700/50 hover:border-primary-500/40 shadow-sm hover:shadow-lg dark:shadow-none group">
                                     <div class="flex flex-col gap-1 mb-4">
                                         <h4
-                                            class="text-xl font-bold text-white group-hover:text-primary transition-colors">
-                                            Product Trainer</h4>
-                                        <h5 class="text-lg text-slate-300 font-medium">CG Electronics</h5>
-                                        <div class="flex flex-wrap gap-4 text-xs text-slate-500 mt-2">
+                                            class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                                            IT Support Engineer</h4>
+                                        <h5 class="text-lg text-slate-700 dark:text-slate-300 font-medium">DishHome</h5>
+                                        <div class="flex flex-wrap gap-4 text-xs text-slate-400 dark:text-slate-500 mt-2">
+                                            <span class="flex items-center gap-1"><i data-lucide="calendar"
+                                                    class="w-[14px]"></i> Dec 2022 - Nov 2023</span>
+                                            <span class="flex items-center gap-1"><i data-lucide="map-pin"
+                                                    class="w-[14px]"></i> Kathmandu, Nepal</span>
+                                        </div>
+                                    </div>
+                                    <ul class="space-y-2">
+                                        <li class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed flex items-start gap-2">
+                                            <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary-500/60 shrink-0"></span>
+                                            Monitored core network (DC, IP/MPLS, FTTH) and server infrastructure 24x7
+                                            across multiple NMS platforms.
+                                        </li>
+                                        <li class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed flex items-start gap-2">
+                                            <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary-500/60 shrink-0"></span>
+                                            Delivered Tier 1/2 support, resolving 90%+ of 10-15 daily tickets within
+                                            SLA.
+                                        </li>
+                                        <li class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed flex items-start gap-2">
+                                            <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary-500/60 shrink-0"></span>
+                                            Installed and managed 100+ CCTV cameras and 50+ biometric access devices.
+                                        </li>
+                                        <li class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed flex items-start gap-2">
+                                            <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary-500/60 shrink-0"></span>
+                                            Provided OpenVPN support on Linux and enforced firewall rules via group
+                                            policy.
+                                        </li>
+                                        <li class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed flex items-start gap-2">
+                                            <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary-500/60 shrink-0"></span>
+                                            Used GNS3, EVE-NG, and Packet Tracer to validate networking equipment before
+                                            deployment.
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Exp 4 : CG Electronics -->
+                        <div class="relative flex flex-col md:flex-row gap-8 reveal">
+                            <div
+                                class="timeline-dot absolute left-[-5px] md:left-1/2 md:-translate-x-[5px] top-6 w-3 h-3 rounded-full bg-primary-500 ring-4 ring-white dark:ring-slate-950 text-primary-500">
+                            </div>
+                            <div class="w-full md:w-1/2 pl-6 md:pl-0 md:px-8">
+                                <div
+                                    class="card-hover bg-white dark:bg-slate-900 p-6 rounded-xl border border-slate-200 dark:border-slate-700/50 hover:border-primary-500/40 shadow-sm hover:shadow-lg dark:shadow-none group">
+                                    <div class="flex flex-col gap-1 mb-4">
+                                        <h4
+                                            class="text-xl font-bold text-slate-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                                            Product Trainer (Executive)</h4>
+                                        <h5 class="text-lg text-slate-700 dark:text-slate-300 font-medium">CGCorpGlobal ·
+                                            CG Electronics</h5>
+                                        <div class="flex flex-wrap gap-4 text-xs text-slate-400 dark:text-slate-500 mt-2">
                                             <span class="flex items-center gap-1"><i data-lucide="calendar"
                                                     class="w-[14px]"></i> Feb 2020 - Jan 2022</span>
                                             <span class="flex items-center gap-1"><i data-lucide="map-pin"
-                                                    class="w-[14px]"></i> Nepal</span>
+                                                    class="w-[14px]"></i> Kathmandu, Nepal</span>
                                         </div>
                                     </div>
                                     <ul class="space-y-2">
-                                        <li class="text-slate-400 text-sm leading-relaxed flex items-start gap-2">
-                                            <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary/50 shrink-0"></span>
+                                        <li class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed flex items-start gap-2">
+                                            <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary-500/60 shrink-0"></span>
                                             Created comprehensive LG product training programs and materials.
                                         </li>
-                                        <li class="text-slate-400 text-sm leading-relaxed flex items-start gap-2">
-                                            <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary/50 shrink-0"></span>
-                                            Analyzed sales data to tailor training modules, boosting secondary sales.
+                                        <li class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed flex items-start gap-2">
+                                            <span class="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary-500/60 shrink-0"></span>
+                                            Analyzed sales data to tailor training modules, boosting secondary sales
+                                            performance.
                                         </li>
                                     </ul>
                                 </div>
@@ -430,78 +535,135 @@
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="py-24 bg-surface/30">
+        <section id="skills" class="py-24 bg-slate-50 dark:bg-slate-900/30">
             <div class="container mx-auto px-6">
                 <div class="grid lg:grid-cols-2 gap-16">
 
                     <!-- Technical Skills -->
                     <div class="reveal">
                         <div class="mb-10">
-                            <h2 class="text-sm font-bold text-primary uppercase tracking-widest mb-2">Expertise</h2>
-                            <h3 class="text-3xl font-display font-bold text-white">Technical Skills</h3>
+                            <h2 class="text-sm font-bold text-primary-600 dark:text-primary-400 uppercase tracking-widest mb-2">
+                                Expertise</h2>
+                            <h3 class="text-3xl font-display font-bold text-slate-900 dark:text-white">Technical Skills
+                            </h3>
                         </div>
 
-                        <div class="space-y-8">
+                        <div class="space-y-7">
                             <div>
-                                <h4 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                                    <span class="w-8 h-1 bg-primary rounded-full"></span>
-                                    Data Analysis & Visualization
+                                <h4 class="text-base font-bold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
+                                    <i data-lucide="bar-chart-3" class="w-4 h-4 text-primary-600 dark:text-primary-400"></i>
+                                    Data &amp; Analytics
                                 </h4>
-                                <div class="flex flex-wrap gap-3">
+                                <div class="flex flex-wrap gap-2">
                                     <span
-                                        class="px-4 py-2 bg-slate-800 border border-slate-700 text-slate-300 rounded-lg text-sm font-medium hover:text-white hover:border-primary/50 transition-colors">SQL</span>
+                                        class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-lg text-sm font-medium hover:text-primary-600 dark:hover:text-white hover:border-primary-500/50 transition-colors">SQL</span>
                                     <span
-                                        class="px-4 py-2 bg-slate-800 border border-slate-700 text-slate-300 rounded-lg text-sm font-medium hover:text-white hover:border-primary/50 transition-colors">Python</span>
+                                        class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-lg text-sm font-medium hover:text-primary-600 dark:hover:text-white hover:border-primary-500/50 transition-colors">Python</span>
                                     <span
-                                        class="px-4 py-2 bg-slate-800 border border-slate-700 text-slate-300 rounded-lg text-sm font-medium hover:text-white hover:border-primary/50 transition-colors">Tableau</span>
+                                        class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-lg text-sm font-medium hover:text-primary-600 dark:hover:text-white hover:border-primary-500/50 transition-colors">Tableau</span>
                                     <span
-                                        class="px-4 py-2 bg-slate-800 border border-slate-700 text-slate-300 rounded-lg text-sm font-medium hover:text-white hover:border-primary/50 transition-colors">Power
+                                        class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-lg text-sm font-medium hover:text-primary-600 dark:hover:text-white hover:border-primary-500/50 transition-colors">Power
                                         BI</span>
                                     <span
-                                        class="px-4 py-2 bg-slate-800 border border-slate-700 text-slate-300 rounded-lg text-sm font-medium hover:text-white hover:border-primary/50 transition-colors">R
+                                        class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-lg text-sm font-medium hover:text-primary-600 dark:hover:text-white hover:border-primary-500/50 transition-colors">R
                                         Studio</span>
                                     <span
-                                        class="px-4 py-2 bg-slate-800 border border-slate-700 text-slate-300 rounded-lg text-sm font-medium hover:text-white hover:border-primary/50 transition-colors">Microsoft
-                                        Excel</span>
+                                        class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-lg text-sm font-medium hover:text-primary-600 dark:hover:text-white hover:border-primary-500/50 transition-colors">Excel</span>
+                                    <span
+                                        class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-lg text-sm font-medium hover:text-primary-600 dark:hover:text-white hover:border-primary-500/50 transition-colors">Predictive
+                                        Modeling</span>
                                 </div>
                             </div>
 
                             <div>
-                                <h4 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                                    <span class="w-8 h-1 bg-primary rounded-full"></span>
-                                    IT Infrastructure
+                                <h4 class="text-base font-bold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
+                                    <i data-lucide="cloud" class="w-4 h-4 text-primary-600 dark:text-primary-400"></i>
+                                    Cloud &amp; DevOps
                                 </h4>
-                                <div class="flex flex-wrap gap-3">
+                                <div class="flex flex-wrap gap-2">
                                     <span
-                                        class="px-4 py-2 bg-slate-800 border border-slate-700 text-slate-300 rounded-lg text-sm font-medium hover:text-white hover:border-primary/50 transition-colors">Windows
-                                        Server Mgmt</span>
+                                        class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-lg text-sm font-medium hover:text-primary-600 dark:hover:text-white hover:border-primary-500/50 transition-colors">AWS
+                                        (EC2, IAM, KMS)</span>
                                     <span
-                                        class="px-4 py-2 bg-slate-800 border border-slate-700 text-slate-300 rounded-lg text-sm font-medium hover:text-white hover:border-primary/50 transition-colors">Network
-                                        Security</span>
+                                        class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-lg text-sm font-medium hover:text-primary-600 dark:hover:text-white hover:border-primary-500/50 transition-colors">Docker</span>
                                     <span
-                                        class="px-4 py-2 bg-slate-800 border border-slate-700 text-slate-300 rounded-lg text-sm font-medium hover:text-white hover:border-primary/50 transition-colors">Cisco
-                                        Networking</span>
+                                        class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-lg text-sm font-medium hover:text-primary-600 dark:hover:text-white hover:border-primary-500/50 transition-colors">GitHub
+                                        Actions / CI-CD</span>
                                     <span
-                                        class="px-4 py-2 bg-slate-800 border border-slate-700 text-slate-300 rounded-lg text-sm font-medium hover:text-white hover:border-primary/50 transition-colors">Firewall
-                                        Config</span>
+                                        class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-lg text-sm font-medium hover:text-primary-600 dark:hover:text-white hover:border-primary-500/50 transition-colors">Flask</span>
+                                    <span
+                                        class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-lg text-sm font-medium hover:text-primary-600 dark:hover:text-white hover:border-primary-500/50 transition-colors">Linux</span>
                                 </div>
                             </div>
 
                             <div>
-                                <h4 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                                    <span class="w-8 h-1 bg-primary rounded-full"></span>
-                                    Advanced Tech
+                                <h4 class="text-base font-bold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
+                                    <i data-lucide="shield-check" class="w-4 h-4 text-primary-600 dark:text-primary-400"></i>
+                                    AI &amp; Governance
                                 </h4>
-                                <div class="flex flex-wrap gap-3">
+                                <div class="flex flex-wrap gap-2">
                                     <span
-                                        class="px-4 py-2 bg-slate-800 border border-slate-700 text-slate-300 rounded-lg text-sm font-medium hover:text-white hover:border-primary/50 transition-colors">Machine
+                                        class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-lg text-sm font-medium hover:text-primary-600 dark:hover:text-white hover:border-primary-500/50 transition-colors">AI
+                                        Fairness (AIF360)</span>
+                                    <span
+                                        class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-lg text-sm font-medium hover:text-primary-600 dark:hover:text-white hover:border-primary-500/50 transition-colors">Bias
+                                        Detection</span>
+                                    <span
+                                        class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-lg text-sm font-medium hover:text-primary-600 dark:hover:text-white hover:border-primary-500/50 transition-colors">Machine
                                         Learning</span>
                                     <span
-                                        class="px-4 py-2 bg-slate-800 border border-slate-700 text-slate-300 rounded-lg text-sm font-medium hover:text-white hover:border-primary/50 transition-colors">GenAI
+                                        class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-lg text-sm font-medium hover:text-primary-600 dark:hover:text-white hover:border-primary-500/50 transition-colors">GenAI
                                         Analytics</span>
                                     <span
-                                        class="px-4 py-2 bg-slate-800 border border-slate-700 text-slate-300 rounded-lg text-sm font-medium hover:text-white hover:border-primary/50 transition-colors">Database
-                                        Management</span>
+                                        class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-lg text-sm font-medium hover:text-primary-600 dark:hover:text-white hover:border-primary-500/50 transition-colors">Synthetic
+                                        Data (Synthea)</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h4 class="text-base font-bold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
+                                    <i data-lucide="server" class="w-4 h-4 text-primary-600 dark:text-primary-400"></i>
+                                    IT Infrastructure &amp; Security
+                                </h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span
+                                        class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-lg text-sm font-medium hover:text-primary-600 dark:hover:text-white hover:border-primary-500/50 transition-colors">Network
+                                        Security</span>
+                                    <span
+                                        class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-lg text-sm font-medium hover:text-primary-600 dark:hover:text-white hover:border-primary-500/50 transition-colors">Cisco
+                                        Networking</span>
+                                    <span
+                                        class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-lg text-sm font-medium hover:text-primary-600 dark:hover:text-white hover:border-primary-500/50 transition-colors">Firewall
+                                        Config</span>
+                                    <span
+                                        class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-lg text-sm font-medium hover:text-primary-600 dark:hover:text-white hover:border-primary-500/50 transition-colors">Active
+                                        Directory</span>
+                                    <span
+                                        class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-lg text-sm font-medium hover:text-primary-600 dark:hover:text-white hover:border-primary-500/50 transition-colors">OpenVPN</span>
+                                    <span
+                                        class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-lg text-sm font-medium hover:text-primary-600 dark:hover:text-white hover:border-primary-500/50 transition-colors">Windows
+                                        Server Mgmt</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h4 class="text-base font-bold text-slate-900 dark:text-white mb-3 flex items-center gap-2">
+                                    <i data-lucide="languages" class="w-4 h-4 text-primary-600 dark:text-primary-400"></i>
+                                    Languages
+                                </h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span
+                                        class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-lg text-sm font-medium hover:text-primary-600 dark:hover:text-white hover:border-primary-500/50 transition-colors">English</span>
+                                    <span
+                                        class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-lg text-sm font-medium hover:text-primary-600 dark:hover:text-white hover:border-primary-500/50 transition-colors">French</span>
+                                    <span
+                                        class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-lg text-sm font-medium hover:text-primary-600 dark:hover:text-white hover:border-primary-500/50 transition-colors">Hindi</span>
+                                    <span
+                                        class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-lg text-sm font-medium hover:text-primary-600 dark:hover:text-white hover:border-primary-500/50 transition-colors">Nepali</span>
+                                    <span
+                                        class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-lg text-sm font-medium hover:text-primary-600 dark:hover:text-white hover:border-primary-500/50 transition-colors">Maithili</span>
+                                    <span
+                                        class="px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-lg text-sm font-medium hover:text-primary-600 dark:hover:text-white hover:border-primary-500/50 transition-colors">Bhojpuri</span>
                                 </div>
                             </div>
                         </div>
@@ -510,64 +672,95 @@
                     <!-- Certifications -->
                     <div class="reveal delay-200">
                         <div class="mb-10">
-                            <h2 class="text-sm font-bold text-primary uppercase tracking-widest mb-2">Credentials</h2>
-                            <h3 class="text-3xl font-display font-bold text-white">Certifications</h3>
+                            <h2 class="text-sm font-bold text-primary-600 dark:text-primary-400 uppercase tracking-widest mb-2">
+                                Credentials</h2>
+                            <h3 class="text-3xl font-display font-bold text-slate-900 dark:text-white">Certifications
+                            </h3>
                         </div>
 
-                        <div class="space-y-4">
+                        <div class="space-y-3">
                             <div
-                                class="flex items-start gap-4 p-4 rounded-xl bg-slate-800/50 border border-slate-700/50 hover:bg-slate-800 transition-colors">
-                                <div class="mt-1 bg-primary/10 p-2 rounded-lg text-primary">
+                                class="flex items-start gap-4 p-4 rounded-xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                                <div class="mt-1 bg-primary-50 dark:bg-primary-400/10 p-2 rounded-lg text-primary-600 dark:text-primary-400">
                                     <i data-lucide="award" class="w-5 h-5"></i>
                                 </div>
                                 <div>
-                                    <h4 class="text-white font-medium">Google Data Analytics Professional Certificate
+                                    <h4 class="text-slate-900 dark:text-white font-medium">Google IT Support Professional
+                                        Certificate</h4>
+                                    <p class="text-sm text-slate-400 dark:text-slate-500 mt-1">Google · incl. IT Security
+                                        &amp; Computer Networking</p>
+                                </div>
+                            </div>
+                            <div
+                                class="flex items-start gap-4 p-4 rounded-xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                                <div class="mt-1 bg-primary-50 dark:bg-primary-400/10 p-2 rounded-lg text-primary-600 dark:text-primary-400">
+                                    <i data-lucide="award" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-slate-900 dark:text-white font-medium">Google Data Analytics
+                                        Professional Certificate</h4>
+                                    <p class="text-sm text-slate-400 dark:text-slate-500 mt-1">Google</p>
+                                </div>
+                            </div>
+                            <div
+                                class="flex items-start gap-4 p-4 rounded-xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                                <div class="mt-1 bg-primary-50 dark:bg-primary-400/10 p-2 rounded-lg text-primary-600 dark:text-primary-400">
+                                    <i data-lucide="award" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-slate-900 dark:text-white font-medium">IBM Data Science Foundations
                                     </h4>
-                                    <p class="text-sm text-slate-400 mt-1">Google</p>
+                                    <p class="text-sm text-slate-400 dark:text-slate-500 mt-1">IBM</p>
                                 </div>
                             </div>
                             <div
-                                class="flex items-start gap-4 p-4 rounded-xl bg-slate-800/50 border border-slate-700/50 hover:bg-slate-800 transition-colors">
-                                <div class="mt-1 bg-primary/10 p-2 rounded-lg text-primary">
+                                class="flex items-start gap-4 p-4 rounded-xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                                <div class="mt-1 bg-primary-50 dark:bg-primary-400/10 p-2 rounded-lg text-primary-600 dark:text-primary-400">
                                     <i data-lucide="award" class="w-5 h-5"></i>
                                 </div>
                                 <div>
-                                    <h4 class="text-white font-medium">Microsoft Office Specialist</h4>
-                                    <p class="text-sm text-slate-400 mt-1">Microsoft</p>
+                                    <h4 class="text-slate-900 dark:text-white font-medium">Microsoft Office Specialist
+                                    </h4>
+                                    <p class="text-sm text-slate-400 dark:text-slate-500 mt-1">Microsoft</p>
                                 </div>
                             </div>
                             <div
-                                class="flex items-start gap-4 p-4 rounded-xl bg-slate-800/50 border border-slate-700/50 hover:bg-slate-800 transition-colors">
-                                <div class="mt-1 bg-primary/10 p-2 rounded-lg text-primary">
+                                class="flex items-start gap-4 p-4 rounded-xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                                <div class="mt-1 bg-primary-50 dark:bg-primary-400/10 p-2 rounded-lg text-primary-600 dark:text-primary-400">
                                     <i data-lucide="award" class="w-5 h-5"></i>
                                 </div>
                                 <div>
-                                    <h4 class="text-white font-medium">Networking Essentials I</h4>
-                                    <p class="text-sm text-slate-400 mt-1">Cisco</p>
+                                    <h4 class="text-slate-900 dark:text-white font-medium">Networking Essentials I</h4>
+                                    <p class="text-sm text-slate-400 dark:text-slate-500 mt-1">Cisco</p>
                                 </div>
                             </div>
                             <div
-                                class="flex items-start gap-4 p-4 rounded-xl bg-slate-800/50 border border-slate-700/50 hover:bg-slate-800 transition-colors">
-                                <div class="mt-1 bg-primary/10 p-2 rounded-lg text-primary">
+                                class="flex items-start gap-4 p-4 rounded-xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/50 hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+                                <div class="mt-1 bg-primary-50 dark:bg-primary-400/10 p-2 rounded-lg text-primary-600 dark:text-primary-400">
                                     <i data-lucide="award" class="w-5 h-5"></i>
                                 </div>
                                 <div>
-                                    <h4 class="text-white font-medium">Google IT Support Professional Certificate</h4>
-                                    <p class="text-sm text-slate-400 mt-1">Google</p>
+                                    <h4 class="text-slate-900 dark:text-white font-medium">GenAI Powered Data Analytics
+                                        Job Simulation</h4>
+                                    <p class="text-sm text-slate-400 dark:text-slate-500 mt-1">Tata, via Forage</p>
                                 </div>
                             </div>
                         </div>
 
                         <div
-                            class="mt-12 p-6 bg-gradient-to-r from-primary/20 to-transparent border border-primary/20 rounded-xl">
-                            <h4 class="text-xl font-bold text-white mb-2">Always Learning</h4>
-                            <p class="text-slate-300 text-sm mb-4">
-                                Currently pursuing a Master's in Data Analytics to deepen my expertise in statistical
-                                modeling and big data technologies.
+                            class="mt-8 p-6 bg-gradient-to-r from-primary-100 dark:from-primary-400/20 via-primary-50 dark:via-primary-400/10 to-transparent border border-primary-200 dark:border-primary-400/20 rounded-xl">
+                            <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+                                <i data-lucide="trophy" class="w-5 h-5 text-primary-600 dark:text-primary-400"></i>
+                                Always Learning
+                            </h4>
+                            <p class="text-slate-600 dark:text-slate-300 text-sm mb-4">
+                                Completing a Master's in Data Analytics (graduating 2026) and actively working toward
+                                AWS certification. Recipient of the UNF President's Academic Distinction List.
                             </p>
                             <div class="flex gap-2">
-                                <span class="h-2 w-2 rounded-full bg-primary animate-pulse"></span>
-                                <span class="text-xs font-mono text-primary uppercase">Active Student</span>
+                                <span class="h-2 w-2 rounded-full bg-primary-500 animate-pulse"></span>
+                                <span class="text-xs font-mono text-primary-700 dark:text-primary-400 uppercase">Active
+                                    Student</span>
                             </div>
                         </div>
                     </div>
@@ -577,85 +770,124 @@
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="py-24 bg-background">
+        <section id="projects" class="py-24 bg-white dark:bg-slate-950">
             <div class="container mx-auto px-6">
                 <div class="mb-16 reveal">
-                    <h2 class="text-sm font-bold text-primary uppercase tracking-widest mb-2">Key Initiatives</h2>
-                    <h3 class="text-3xl md:text-4xl font-display font-bold text-white">Selected Projects</h3>
+                    <h2 class="text-sm font-bold text-primary-600 dark:text-primary-400 uppercase tracking-widest mb-2">
+                        Key Initiatives</h2>
+                    <h3 class="text-3xl md:text-4xl font-display font-bold text-slate-900 dark:text-white">Selected
+                        Projects</h3>
                 </div>
 
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Project 1 -->
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Featured Project: DDFA -->
                     <div
-                        class="group relative bg-surface p-8 rounded-2xl border border-slate-700 hover:border-primary/50 transition-all hover:-translate-y-1 reveal">
-                        <div class="flex justify-between items-start mb-6">
+                        class="card-hover group relative md:col-span-2 bg-gradient-to-br from-primary-50 dark:from-primary-400/10 via-white dark:via-slate-900 to-white dark:to-slate-900 p-8 rounded-2xl border border-primary-200 dark:border-primary-400/30 hover:border-primary-500/60 hover:shadow-xl dark:hover:shadow-none reveal">
+                        <div class="flex flex-wrap justify-between items-start gap-4 mb-6">
                             <div
-                                class="p-3 bg-slate-800 rounded-xl text-primary group-hover:bg-primary group-hover:text-slate-900 transition-colors">
-                                <i data-lucide="folder-git-2" class="w-6 h-6"></i>
+                                class="p-3 bg-primary-600 dark:bg-primary-400 rounded-xl text-white dark:text-slate-900">
+                                <i data-lucide="shield-check" class="w-6 h-6"></i>
                             </div>
+                            <span
+                                class="px-3 py-1 bg-primary-600 dark:bg-primary-400 text-white dark:text-slate-900 text-xs font-bold rounded-full uppercase tracking-wide">Featured
+                                · Healthcare AI</span>
                         </div>
-                        <h4 class="text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors">
-                            Sales Optimization Program
+                        <h4 class="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                            DDFA Platform — Ethical AI &amp; Bias Detection
                         </h4>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                            Designed a data-driven training curriculum for CG Electronics staff. Analyzed sales gaps to
-                            create targeted modules, directly increasing secondary sales.
+                        <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6 max-w-3xl">
+                            Led platform &amp; operations for an Ethical AI and Bias Detection system for healthcare at
+                            Synod Intellicare. Architected 3 partitioned AWS environments, automated CI/CD with GitHub
+                            Actions and AWS CodeDeploy, hardened security with IAM and KMS, and built ETL pipelines and
+                            clinical governance dashboards using synthetic patient data generated with Synthea.
                         </p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
+                        <div class="flex flex-wrap gap-2">
                             <span
-                                class="text-xs font-medium text-slate-300 bg-slate-800 px-2 py-1 rounded border border-slate-700">Data
-                                Analysis</span>
+                                class="text-xs font-medium text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-800 px-2.5 py-1 rounded border border-slate-200 dark:border-slate-700">AWS</span>
                             <span
-                                class="text-xs font-medium text-slate-300 bg-slate-800 px-2 py-1 rounded border border-slate-700">Curriculum
-                                Design</span>
+                                class="text-xs font-medium text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-800 px-2.5 py-1 rounded border border-slate-200 dark:border-slate-700">Docker</span>
+                            <span
+                                class="text-xs font-medium text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-800 px-2.5 py-1 rounded border border-slate-200 dark:border-slate-700">CI/CD</span>
+                            <span
+                                class="text-xs font-medium text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-800 px-2.5 py-1 rounded border border-slate-200 dark:border-slate-700">AI
+                                Fairness</span>
                         </div>
                     </div>
 
                     <!-- Project 2 -->
                     <div
-                        class="group relative bg-surface p-8 rounded-2xl border border-slate-700 hover:border-primary/50 transition-all hover:-translate-y-1 reveal delay-100">
+                        class="card-hover group relative bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-primary-500/50 hover:shadow-lg dark:hover:shadow-none reveal">
                         <div class="flex justify-between items-start mb-6">
                             <div
-                                class="p-3 bg-slate-800 rounded-xl text-primary group-hover:bg-primary group-hover:text-slate-900 transition-colors">
-                                <i data-lucide="folder-git-2" class="w-6 h-6"></i>
+                                class="p-3 bg-slate-100 dark:bg-slate-800 rounded-xl text-primary-600 dark:text-primary-400 group-hover:bg-primary-600 dark:group-hover:bg-primary-400 group-hover:text-white dark:group-hover:text-slate-900 transition-colors">
+                                <i data-lucide="server" class="w-6 h-6"></i>
                             </div>
                         </div>
-                        <h4 class="text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors">
-                            Secure Network Setup
+                        <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                            Secure Network &amp; Infrastructure Operations
                         </h4>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                            Architected the local network and security policies for Dishhome. Implemented firewall rules
-                            and biometric access controls.
+                        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6">
+                            Monitored core network and server infrastructure 24x7 at DishHome, resolving 90%+ of daily
+                            tickets within SLA while managing 100+ CCTV cameras, 50+ biometric devices, and
+                            OpenVPN/firewall security policies.
                         </p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
+                        <div class="flex flex-wrap gap-2">
                             <span
-                                class="text-xs font-medium text-slate-300 bg-slate-800 px-2 py-1 rounded border border-slate-700">Networking</span>
+                                class="text-xs font-medium text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded border border-slate-200 dark:border-slate-700">Networking</span>
                             <span
-                                class="text-xs font-medium text-slate-300 bg-slate-800 px-2 py-1 rounded border border-slate-700">Security</span>
+                                class="text-xs font-medium text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded border border-slate-200 dark:border-slate-700">Security</span>
+                            <span
+                                class="text-xs font-medium text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded border border-slate-200 dark:border-slate-700">Linux</span>
                         </div>
                     </div>
 
                     <!-- Project 3 -->
                     <div
-                        class="group relative bg-surface p-8 rounded-2xl border border-slate-700 hover:border-primary/50 transition-all hover:-translate-y-1 reveal delay-200">
+                        class="card-hover group relative bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-primary-500/50 hover:shadow-lg dark:hover:shadow-none reveal delay-100">
                         <div class="flex justify-between items-start mb-6">
                             <div
-                                class="p-3 bg-slate-800 rounded-xl text-primary group-hover:bg-primary group-hover:text-slate-900 transition-colors">
-                                <i data-lucide="folder-git-2" class="w-6 h-6"></i>
+                                class="p-3 bg-slate-100 dark:bg-slate-800 rounded-xl text-primary-600 dark:text-primary-400 group-hover:bg-primary-600 dark:group-hover:bg-primary-400 group-hover:text-white dark:group-hover:text-slate-900 transition-colors">
+                                <i data-lucide="sparkles" class="w-6 h-6"></i>
                             </div>
                         </div>
-                        <h4 class="text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors">
+                        <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
                             GenAI Analytics Simulation
                         </h4>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6">
                             Completed a job simulation for Tata, utilizing Generative AI tools to interpret complex
                             datasets and generate strategic business insights.
                         </p>
-                        <div class="flex flex-wrap gap-2 mt-auto">
+                        <div class="flex flex-wrap gap-2">
                             <span
-                                class="text-xs font-medium text-slate-300 bg-slate-800 px-2 py-1 rounded border border-slate-700">GenAI</span>
+                                class="text-xs font-medium text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded border border-slate-200 dark:border-slate-700">GenAI</span>
                             <span
-                                class="text-xs font-medium text-slate-300 bg-slate-800 px-2 py-1 rounded border border-slate-700">Python</span>
+                                class="text-xs font-medium text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded border border-slate-200 dark:border-slate-700">Python</span>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div
+                        class="card-hover group relative bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-primary-500/50 hover:shadow-lg dark:hover:shadow-none reveal delay-200">
+                        <div class="flex justify-between items-start mb-6">
+                            <div
+                                class="p-3 bg-slate-100 dark:bg-slate-800 rounded-xl text-primary-600 dark:text-primary-400 group-hover:bg-primary-600 dark:group-hover:bg-primary-400 group-hover:text-white dark:group-hover:text-slate-900 transition-colors">
+                                <i data-lucide="trending-up" class="w-6 h-6"></i>
+                            </div>
+                        </div>
+                        <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                            Sales Optimization Training Program
+                        </h4>
+                        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6">
+                            Designed a data-driven training curriculum for CG Electronics staff, analyzing sales gaps to
+                            create targeted modules that lifted secondary sales.
+                        </p>
+                        <div class="flex flex-wrap gap-2">
+                            <span
+                                class="text-xs font-medium text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded border border-slate-200 dark:border-slate-700">Data
+                                Analysis</span>
+                            <span
+                                class="text-xs font-medium text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded border border-slate-200 dark:border-slate-700">Curriculum
+                                Design</span>
                         </div>
                     </div>
                 </div>
@@ -663,42 +895,51 @@
         </section>
 
         <!-- Education Section -->
-        <section id="education" class="py-24 bg-background">
+        <section id="education" class="py-24 bg-slate-50 dark:bg-slate-900/30">
             <div class="container mx-auto px-6">
                 <div class="mb-16 text-center reveal">
-                    <h2 class="text-sm font-bold text-primary uppercase tracking-widest mb-2">Academic Background</h2>
-                    <h3 class="text-3xl md:text-4xl font-display font-bold text-white">Education</h3>
+                    <h2 class="text-sm font-bold text-primary-600 dark:text-primary-400 uppercase tracking-widest mb-2">
+                        Academic Background</h2>
+                    <h3 class="text-3xl md:text-4xl font-display font-bold text-slate-900 dark:text-white">Education</h3>
                 </div>
 
                 <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                     <div
-                        class="bg-surface p-8 rounded-2xl border border-slate-700 hover:border-primary/50 transition-colors flex flex-col items-center text-center md:items-start md:text-left reveal">
-                        <div class="bg-slate-700/50 p-4 rounded-full text-primary mb-6">
+                        class="card-hover bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-primary-500/50 hover:shadow-lg dark:hover:shadow-none flex flex-col items-center text-center md:items-start md:text-left reveal">
+                        <div class="bg-slate-100 dark:bg-slate-700/50 p-4 rounded-full text-primary-600 dark:text-primary-400 mb-6">
                             <i data-lucide="graduation-cap" class="w-8 h-8"></i>
                         </div>
-                        <h4 class="text-xl font-bold text-white mb-2">Master's in Data Analytics</h4>
-                        <h5 class="text-lg text-primary mb-1">University of Niagara Falls, Canada</h5>
+                        <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2">Master of Data Analytics</h4>
+                        <h5 class="text-lg text-primary-600 dark:text-primary-400 mb-1">University of Niagara Falls,
+                            Canada</h5>
                         <span
-                            class="inline-block px-3 py-1 bg-slate-800 rounded-full text-xs font-medium text-slate-400 border border-slate-700 mb-4">
-                            April 2025 - Current
+                            class="inline-block px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-medium text-slate-500 dark:text-slate-400 border border-slate-200 dark:border-slate-700 mb-4">
+                            April 2025 - October 2026
                         </span>
-                        <p class="text-slate-400 text-sm leading-relaxed">
-                            Focusing on advanced statistical methods, big data technologies, and predictive modeling.
+                        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-4">
+                            Focusing on data engineering, cloud infrastructure, and ethical AI — including bias
+                            detection and governance in production ML systems.
                         </p>
+                        <span
+                            class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-medium bg-primary-50 dark:bg-primary-400/10 text-primary-700 dark:text-primary-400 border border-primary-200 dark:border-primary-400/20">
+                            <i data-lucide="award" class="w-3.5 h-3.5"></i>
+                            President's Academic Distinction List
+                        </span>
                     </div>
 
                     <div
-                        class="bg-surface p-8 rounded-2xl border border-slate-700 hover:border-primary/50 transition-colors flex flex-col items-center text-center md:items-start md:text-left reveal delay-100">
-                        <div class="bg-slate-700/50 p-4 rounded-full text-primary mb-6">
+                        class="card-hover bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-primary-500/50 hover:shadow-lg dark:hover:shadow-none flex flex-col items-center text-center md:items-start md:text-left reveal delay-100">
+                        <div class="bg-slate-100 dark:bg-slate-700/50 p-4 rounded-full text-primary-600 dark:text-primary-400 mb-6">
                             <i data-lucide="graduation-cap" class="w-8 h-8"></i>
                         </div>
-                        <h4 class="text-xl font-bold text-white mb-2">BTech in Electronics & Communication</h4>
-                        <h5 class="text-lg text-primary mb-1">Aditya Engineering College</h5>
+                        <h4 class="text-xl font-bold text-slate-900 dark:text-white mb-2">BTech in Electronics &amp;
+                            Communication</h4>
+                        <h5 class="text-lg text-primary-600 dark:text-primary-400 mb-1">Aditya Engineering College</h5>
                         <span
-                            class="inline-block px-3 py-1 bg-slate-800 rounded-full text-xs font-medium text-slate-400 border border-slate-700 mb-4">
+                            class="inline-block px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-xs font-medium text-slate-500 dark:text-slate-400 border border-slate-200 dark:border-slate-700 mb-4">
                             Aug 2015 - Oct 2019
                         </span>
-                        <p class="text-slate-400 text-sm leading-relaxed">
+                        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
                             Foundation in engineering principles, signal processing, and telecommunications.
                         </p>
                     </div>
@@ -707,98 +948,106 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-24 bg-surface/30">
+        <section id="contact" class="py-24 bg-white dark:bg-slate-950">
             <div class="container mx-auto px-6">
                 <div class="grid lg:grid-cols-2 gap-16 items-start">
 
                     <div class="reveal">
-                        <h2 class="text-sm font-bold text-primary uppercase tracking-widest mb-2">Get in Touch</h2>
-                        <h3 class="text-4xl font-display font-bold text-white mb-6">Let's Work Together</h3>
-                        <p class="text-slate-400 text-lg mb-12">
-                            I'm always open to discussing data analysis projects, IT infrastructure, or partnership
+                        <h2 class="text-sm font-bold text-primary-600 dark:text-primary-400 uppercase tracking-widest mb-2">
+                            Get in Touch</h2>
+                        <h3 class="text-4xl font-display font-bold text-slate-900 dark:text-white mb-6">Let's Work
+                            Together</h3>
+                        <p class="text-slate-500 dark:text-slate-400 text-lg mb-12">
+                            I'm always open to discussing data, cloud infrastructure, or AI governance projects and
                             opportunities.
                         </p>
 
-                        <div class="space-y-6">
+                        <div class="space-y-5">
                             <a href="mailto:adwrells@gmail.com"
-                                class="flex items-center gap-4 p-4 rounded-xl bg-slate-800 hover:bg-slate-700 transition-colors group">
+                                class="flex items-center gap-4 p-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-transparent hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors group">
                                 <div
-                                    class="bg-primary/10 p-3 rounded-lg text-primary group-hover:bg-primary group-hover:text-slate-900 transition-colors">
+                                    class="bg-primary-50 dark:bg-primary-400/10 p-3 rounded-lg text-primary-600 dark:text-primary-400 group-hover:bg-primary-600 dark:group-hover:bg-primary-400 group-hover:text-white dark:group-hover:text-slate-900 transition-colors">
                                     <i data-lucide="mail" class="w-6 h-6"></i>
                                 </div>
                                 <div>
-                                    <p class="text-xs text-slate-400 uppercase tracking-wide">Email</p>
-                                    <p class="text-white font-medium">adwrells@gmail.com</p>
+                                    <p class="text-xs text-slate-400 dark:text-slate-500 uppercase tracking-wide">Email</p>
+                                    <p class="text-slate-900 dark:text-white font-medium">adwrells@gmail.com</p>
                                 </div>
                             </a>
 
-                            <div class="flex items-center gap-4 p-4 rounded-xl bg-slate-800">
-                                <div class="bg-primary/10 p-3 rounded-lg text-primary">
-                                    <i data-lucide="phone" class="w-6 h-6"></i>
-                                </div>
-                                <div>
-                                    <p class="text-xs text-slate-400 uppercase tracking-wide">Phone</p>
-                                    <p class="text-white font-medium">0000000000</p>
-                                </div>
-                            </div>
-
-                            <a href="https://linkedin.com/in/amitdevraj" target="_blank"
-                                class="flex items-center gap-4 p-4 rounded-xl bg-slate-800 hover:bg-slate-700 transition-colors group">
+                            <a href="https://linkedin.com/in/amitdevraj" target="_blank" rel="noopener noreferrer"
+                                class="flex items-center gap-4 p-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-transparent hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors group">
                                 <div
-                                    class="bg-primary/10 p-3 rounded-lg text-primary group-hover:bg-primary group-hover:text-slate-900 transition-colors">
-                                    <i data-lucide="linkedin" class="w-6 h-6"></i>
+                                    class="bg-primary-50 dark:bg-primary-400/10 p-3 rounded-lg text-primary-600 dark:text-primary-400 group-hover:bg-primary-600 dark:group-hover:bg-primary-400 group-hover:text-white dark:group-hover:text-slate-900 transition-colors">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-linkedin"/></svg>
                                 </div>
                                 <div>
-                                    <p class="text-xs text-slate-400 uppercase tracking-wide">LinkedIn</p>
-                                    <p class="text-white font-medium">Connect with me</p>
+                                    <p class="text-xs text-slate-400 dark:text-slate-500 uppercase tracking-wide">LinkedIn</p>
+                                    <p class="text-slate-900 dark:text-white font-medium">Connect with me</p>
                                 </div>
                             </a>
 
-                            <div class="flex items-center gap-4 p-4 rounded-xl bg-slate-800">
-                                <div class="bg-primary/10 p-3 rounded-lg text-primary">
+                            <a href="https://github.com/Adwrells" target="_blank" rel="noopener noreferrer"
+                                class="flex items-center gap-4 p-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-transparent hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors group">
+                                <div
+                                    class="bg-primary-50 dark:bg-primary-400/10 p-3 rounded-lg text-primary-600 dark:text-primary-400 group-hover:bg-primary-600 dark:group-hover:bg-primary-400 group-hover:text-white dark:group-hover:text-slate-900 transition-colors">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-github"/></svg>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-slate-400 dark:text-slate-500 uppercase tracking-wide">GitHub</p>
+                                    <p class="text-slate-900 dark:text-white font-medium">View my repositories</p>
+                                </div>
+                            </a>
+
+                            <div class="flex items-center gap-4 p-4 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-transparent">
+                                <div class="bg-primary-50 dark:bg-primary-400/10 p-3 rounded-lg text-primary-600 dark:text-primary-400">
                                     <i data-lucide="map-pin" class="w-6 h-6"></i>
                                 </div>
                                 <div>
-                                    <p class="text-xs text-slate-400 uppercase tracking-wide">Location</p>
-                                    <p class="text-white font-medium">Toronto, Canada</p>
+                                    <p class="text-xs text-slate-400 dark:text-slate-500 uppercase tracking-wide">Location</p>
+                                    <p class="text-slate-900 dark:text-white font-medium">Niagara Falls, Ontario, Canada</p>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="bg-slate-800 p-8 rounded-2xl border border-slate-700 reveal delay-100">
-                        <form class="space-y-6"
-                            onsubmit="event.preventDefault(); alert('Thank you for your message! This is a demo form.');">
+                    <div
+                        class="bg-slate-50 dark:bg-slate-800 p-8 rounded-2xl border border-slate-200 dark:border-slate-700 reveal delay-100">
+                        <form id="contact-form" class="space-y-6" novalidate>
                             <div class="grid md:grid-cols-2 gap-6">
                                 <div class="space-y-2">
-                                    <label for="name" class="text-sm font-medium text-slate-300">Name</label>
-                                    <input type="text" id="name"
-                                        class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+                                    <label for="name" class="text-sm font-medium text-slate-700 dark:text-slate-300">Name</label>
+                                    <input type="text" id="name" name="name" required
+                                        class="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg px-4 py-3 text-slate-900 dark:text-white focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-colors"
                                         placeholder="John Doe">
                                 </div>
                                 <div class="space-y-2">
-                                    <label for="email" class="text-sm font-medium text-slate-300">Email</label>
-                                    <input type="email" id="email"
-                                        class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+                                    <label for="email" class="text-sm font-medium text-slate-700 dark:text-slate-300">Email</label>
+                                    <input type="email" id="email" name="email" required
+                                        class="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg px-4 py-3 text-slate-900 dark:text-white focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-colors"
                                         placeholder="john@example.com">
                                 </div>
                             </div>
                             <div class="space-y-2">
-                                <label for="subject" class="text-sm font-medium text-slate-300">Subject</label>
-                                <input type="text" id="subject"
-                                    class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+                                <label for="subject" class="text-sm font-medium text-slate-700 dark:text-slate-300">Subject</label>
+                                <input type="text" id="subject" name="subject"
+                                    class="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg px-4 py-3 text-slate-900 dark:text-white focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-colors"
                                     placeholder="Project inquiry">
                             </div>
                             <div class="space-y-2">
-                                <label for="message" class="text-sm font-medium text-slate-300">Message</label>
-                                <textarea id="message" rows="5"
-                                    class="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors resize-none"
+                                <label for="message" class="text-sm font-medium text-slate-700 dark:text-slate-300">Message</label>
+                                <textarea id="message" name="message" rows="5" required
+                                    class="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg px-4 py-3 text-slate-900 dark:text-white focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500 transition-colors resize-none"
                                     placeholder="How can I help you?"></textarea>
                             </div>
                             <button type="submit"
-                                class="w-full bg-primary text-slate-900 font-bold py-4 rounded-lg hover:bg-primary-dark transition-all flex justify-center items-center gap-2">
+                                class="w-full bg-primary-600 dark:bg-primary-400 text-white dark:text-slate-900 font-bold py-4 rounded-lg hover:bg-primary-700 dark:hover:bg-primary-300 transition-all flex justify-center items-center gap-2">
                                 Send Message <i data-lucide="send" class="w-[18px]"></i>
                             </button>
+                            <p id="form-status" class="text-sm text-center" role="status" aria-live="polite"></p>
+                            <p class="text-xs text-slate-400 dark:text-slate-500 text-center">
+                                This opens your email client — no data is sent to or stored on any server.
+                            </p>
                         </form>
                     </div>
 
@@ -808,79 +1057,70 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-background border-t border-slate-800 py-12">
+    <footer class="bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 py-12">
         <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div>
-                <span class="text-2xl font-bold font-display text-slate-100 tracking-tighter">
-                    ARD<span class="text-primary">.</span>
+            <div class="text-center md:text-left">
+                <span class="text-2xl font-bold font-display text-slate-900 dark:text-slate-100 tracking-tighter">
+                    ARD<span class="text-primary-600 dark:text-primary-400">.</span>
                 </span>
-                <p class="text-slate-500 text-sm mt-2">
-                    © 2025 Amit Raj Dev. All rights reserved.
+                <p class="text-slate-400 dark:text-slate-500 text-sm mt-2">
+                    © 2026 Amit Raj Dev. All rights reserved.
                 </p>
             </div>
 
-            <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
-                class="p-3 bg-slate-800 rounded-lg text-slate-400 hover:text-primary hover:bg-slate-700 transition-all border border-slate-700"
-                aria-label="Back to top">
-                <i data-lucide="arrow-up" class="w-5 h-5"></i>
-            </button>
+            <div class="flex items-center gap-3">
+                <a href="https://linkedin.com/in/amitdevraj" target="_blank" rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                    class="p-3 bg-white dark:bg-slate-800 rounded-lg text-slate-500 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all border border-slate-200 dark:border-slate-700">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-linkedin"/></svg>
+                </a>
+                <a href="https://github.com/Adwrells" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
+                    class="p-3 bg-white dark:bg-slate-800 rounded-lg text-slate-500 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all border border-slate-200 dark:border-slate-700">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-github"/></svg>
+                </a>
+                <button id="back-to-top" type="button"
+                    class="p-3 bg-white dark:bg-slate-800 rounded-lg text-slate-500 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all border border-slate-200 dark:border-slate-700"
+                    aria-label="Back to top">
+                    <i data-lucide="arrow-up" class="w-5 h-5"></i>
+                </button>
+            </div>
         </div>
     </footer>
 
-    <!-- Interactive Scripts -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Amit Raj Dev",
+        "jobTitle": "Data Analyst",
+        "description": "Data Analyst specializing in cloud infrastructure, CI/CD automation, and ethical AI governance.",
+        "url": "https://www.amitrajdev.com.np/",
+        "image": "https://www.amitrajdev.com.np/images/profile.jpg",
+        "email": "mailto:adwrells@gmail.com",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Niagara Falls",
+            "addressRegion": "Ontario",
+            "addressCountry": "Canada"
+        },
+        "sameAs": [
+            "https://linkedin.com/in/amitdevraj",
+            "https://github.com/Adwrells"
+        ]
+    }
+    </script>
+
     <script>
-        // Initialize Icons
-        lucide.createIcons();
-
-        // Mobile Menu Toggle
-        const menuBtn = document.getElementById('menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
-
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        // Header Scroll Effect
-        const header = document.getElementById('main-header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('bg-background/90', 'backdrop-blur-md', 'shadow-lg');
-                header.classList.remove('py-6');
-                header.classList.add('py-4');
-            } else {
-                header.classList.remove('bg-background/90', 'backdrop-blur-md', 'shadow-lg');
-                header.classList.remove('py-4');
-                header.classList.add('py-6');
+        // Mirror the desktop theme toggle onto the mobile control
+        document.addEventListener('DOMContentLoaded', function () {
+            var mobileToggle = document.getElementById('theme-toggle-mobile');
+            var desktopToggle = document.getElementById('theme-toggle');
+            if (mobileToggle && desktopToggle) {
+                mobileToggle.addEventListener('click', function () { desktopToggle.click(); });
             }
         });
-
-        // Scroll Animation (Intersection Observer)
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal').forEach(el => {
-            observer.observe(el);
-        });
     </script>
-    <script type="module" src="/index.tsx"></script>
+    <script src="/assets/js/main.js"></script>
 </body>
 
 </html>
