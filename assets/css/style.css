@@ -116,7 +116,9 @@ html.dark ::-webkit-scrollbar-thumb:hover {
 
 /* Theme toggle icon crossfade */
 #theme-toggle .icon-sun,
-#theme-toggle .icon-moon {
+#theme-toggle .icon-moon,
+#theme-toggle-mobile .icon-sun,
+#theme-toggle-mobile .icon-moon {
   position: absolute;
   inset: 0;
   display: flex;
@@ -125,12 +127,16 @@ html.dark ::-webkit-scrollbar-thumb:hover {
   transition: opacity 0.25s ease, transform 0.25s ease;
 }
 html:not(.dark) #theme-toggle .icon-moon,
-html.dark #theme-toggle .icon-sun {
+html:not(.dark) #theme-toggle-mobile .icon-moon,
+html.dark #theme-toggle .icon-sun,
+html.dark #theme-toggle-mobile .icon-sun {
   opacity: 0;
   transform: scale(0.5) rotate(45deg);
 }
 html:not(.dark) #theme-toggle .icon-sun,
-html.dark #theme-toggle .icon-moon {
+html:not(.dark) #theme-toggle-mobile .icon-sun,
+html.dark #theme-toggle .icon-moon,
+html.dark #theme-toggle-mobile .icon-moon {
   opacity: 1;
   transform: scale(1) rotate(0deg);
 }
@@ -159,4 +165,165 @@ html.dark #theme-toggle .icon-moon {
 }
 .skip-link:focus {
   left: 0;
+}
+
+/* ---------------------------------------------------------
+   Motion layer
+   One idea per interaction. Everything here is suppressed by
+   the prefers-reduced-motion block near the top of this file.
+--------------------------------------------------------- */
+
+/* Aurora — two slow colour fields behind each hero.
+   Replaces nothing: it sits under the existing grid backdrop. */
+.aurora {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  contain: paint;
+}
+.aurora span {
+  position: absolute;
+  display: block;
+  border-radius: 9999px;
+  filter: blur(90px);
+  will-change: transform;
+}
+.aurora .a1 {
+  width: 38rem;
+  height: 38rem;
+  top: -14rem;
+  right: -10rem;
+  background: rgba(20, 184, 166, 0.16);
+  animation: aurora-drift-a 26s ease-in-out infinite;
+}
+.aurora .a2 {
+  width: 32rem;
+  height: 32rem;
+  bottom: -12rem;
+  left: -8rem;
+  background: rgba(14, 165, 233, 0.14);
+  animation: aurora-drift-b 32s ease-in-out infinite;
+}
+html.dark .aurora .a1 {
+  background: rgba(45, 212, 191, 0.14);
+}
+html.dark .aurora .a2 {
+  background: rgba(56, 189, 248, 0.12);
+}
+
+@keyframes aurora-drift-a {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50%      { transform: translate3d(-4%, 4%, 0) scale(1.08); }
+}
+@keyframes aurora-drift-b {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50%      { transform: translate3d(5%, -4%, 0) scale(1.06); }
+}
+
+/* Cursor spotlight on cards.
+   z-index:0 on the card makes it a stacking context, so the
+   -1 layer paints above the card's background but below its text. */
+.card-hover {
+  position: relative;
+  z-index: 0;
+}
+.card-hover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background: radial-gradient(
+    24rem circle at var(--mx, 50%) var(--my, 50%),
+    rgba(20, 184, 166, 0.10),
+    transparent 60%
+  );
+}
+html.dark .card-hover::after {
+  background: radial-gradient(
+    24rem circle at var(--mx, 50%) var(--my, 50%),
+    rgba(45, 212, 191, 0.13),
+    transparent 60%
+  );
+}
+.card-hover:hover::after {
+  opacity: 1;
+}
+
+/* Reveal — same idea, softer curve */
+.reveal {
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Nav underline */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 1.5px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #14b8a6, #0ea5e9);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.nav-link:hover::after,
+.nav-link.text-primary-600::after {
+  transform: scaleX(1);
+}
+
+/* The name gradient drifts, very slowly */
+.text-gradient {
+  background-size: 220% 100%;
+  animation: gradient-pan 14s ease-in-out infinite;
+}
+@keyframes gradient-pan {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+
+/* Scroll progress gets a faint glow so it reads on white */
+#scroll-progress {
+  box-shadow: 0 0 10px rgba(20, 184, 166, 0.45);
+}
+
+/* Counters hold their width while they count */
+[data-countup] {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Theme change: a circular wipe from the toggle, where supported */
+@supports (view-transition-name: none) {
+  ::view-transition-old(root) {
+    animation: none;
+  }
+  ::view-transition-new(root) {
+    animation: theme-wipe 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  @keyframes theme-wipe {
+    from { clip-path: circle(0% at var(--tx, 50%) var(--ty, 0%)); }
+    to   { clip-path: circle(150% at var(--tx, 50%) var(--ty, 0%)); }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-new(root),
+  ::view-transition-old(root) {
+    animation: none !important;
+  }
+}
+
+/* The mobile theme button needs its own positioning context for the icon swap */
+#theme-toggle,
+#theme-toggle-mobile {
+  position: relative;
 }

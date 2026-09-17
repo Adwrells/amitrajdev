@@ -34,10 +34,31 @@
   document.addEventListener('DOMContentLoaded', function () {
     var themeToggle = document.getElementById('theme-toggle');
     if (themeToggle) {
-      themeToggle.addEventListener('click', function () {
+      themeToggle.addEventListener('click', function (e) {
         var next = root.classList.contains('dark') ? 'light' : 'dark';
-        applyTheme(next);
-        setStoredTheme(next);
+        var commit = function () {
+          applyTheme(next);
+          setStoredTheme(next);
+        };
+
+        var reduced = window.matchMedia &&
+                      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        // Circular wipe from the toggle itself, where the browser supports it.
+        if (!document.startViewTransition || reduced) {
+          commit();
+          return;
+        }
+
+        // The mobile button forwards its clicks here, so start the wipe from
+        // whichever of the two controls is actually on screen.
+        var origin = themeToggle;
+        var mobile = document.getElementById('theme-toggle-mobile');
+        if (themeToggle.getBoundingClientRect().width === 0 && mobile) origin = mobile;
+        var r = origin.getBoundingClientRect();
+        root.style.setProperty('--tx', ((r.left + r.width / 2) / window.innerWidth * 100) + '%');
+        root.style.setProperty('--ty', ((r.top + r.height / 2) / window.innerHeight * 100) + '%');
+        document.startViewTransition(commit);
       });
     }
 
@@ -179,6 +200,95 @@
           status.className = 'text-sm mt-3 text-primary-600 dark:text-primary-400';
         }
       });
+    }
+  });
+})();
+
+
+/* ---------------------------------------------------------
+   Motion layer — cursor spotlight on cards, counting figures.
+   Both are skipped entirely when the visitor asks for reduced
+   motion, and the spotlight only runs for real pointers.
+--------------------------------------------------------- */
+(function () {
+  'use strict';
+
+  var reduced = window.matchMedia &&
+                window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  document.addEventListener('DOMContentLoaded', function () {
+
+    /* ---------- Cursor spotlight ---------- */
+    var finePointer = window.matchMedia &&
+                      window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    if (finePointer && !reduced) {
+      var pending = false;
+      var lastCard = null;
+      var lastX = 0;
+      var lastY = 0;
+
+      document.addEventListener('pointermove', function (e) {
+        var card = e.target.closest ? e.target.closest('.card-hover') : null;
+        if (!card) return;
+        lastCard = card;
+        lastX = e.clientX;
+        lastY = e.clientY;
+        if (pending) return;
+        pending = true;
+        window.requestAnimationFrame(function () {
+          pending = false;
+          if (!lastCard) return;
+          var r = lastCard.getBoundingClientRect();
+          lastCard.style.setProperty('--mx', ((lastX - r.left) / r.width * 100) + '%');
+          lastCard.style.setProperty('--my', ((lastY - r.top) / r.height * 100) + '%');
+        });
+      }, { passive: true });
+    }
+
+    /* ---------- Counting figures ----------
+       <span data-countup="175.8" data-decimals="1" data-suffix="M">175.8M</span> */
+    var counters = document.querySelectorAll('[data-countup]');
+    if (!counters.length) return;
+
+    var render = function (el, value) {
+      var decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+      el.textContent = (el.getAttribute('data-prefix') || '') +
+                       value.toFixed(decimals) +
+                       (el.getAttribute('data-suffix') || '');
+    };
+
+    var run = function (el) {
+      var target = parseFloat(el.getAttribute('data-countup'));
+      if (isNaN(target)) return;
+      if (reduced) { render(el, target); return; }
+
+      var duration = 1100;
+      var started = null;
+      var step = function (now) {
+        if (started === null) started = now;
+        var t = Math.min((now - started) / duration, 1);
+        var eased = 1 - Math.pow(1 - t, 3);      // ease-out cubic
+        render(el, target * eased);
+        if (t < 1) window.requestAnimationFrame(step);
+      };
+      window.requestAnimationFrame(step);
+    };
+
+    if ('IntersectionObserver' in window) {
+      var counterObserver = new IntersectionObserver(function (entries, obs) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          run(entry.target);
+          obs.unobserve(entry.target);
+        });
+      }, { threshold: 0.4 });
+      counters.forEach(function (el) {
+        render(el, 0);
+        counterObserver.observe(el);
+      });
+    } else {
+      counters.forEach(function (el) { run(el); });
     }
   });
 })();
