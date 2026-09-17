@@ -222,6 +222,67 @@
         <section id="academic-projects" class="py-16 bg-slate-50 dark:bg-slate-900/30">
             <div class="container mx-auto px-6">
                 <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                    <!-- DAMO 699 Capstone -->
+                    <div
+                        class="card-hover group relative md:col-span-2 bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-primary-500/50 hover:shadow-lg dark:hover:shadow-none overflow-hidden reveal active">
+                        <div class="grid md:grid-cols-5">
+                            <div class="md:col-span-2 relative flex items-center justify-center p-6 bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-800 dark:to-slate-900/60">
+                                <img src="images/projects/capstone-ed-dashboard.jpg" alt="Executive dashboard of the Emergency Department analytics platform, showing KPI cards and a 19-year ED visit volume chart" loading="lazy" decoding="async" width="1200" height="651" class="w-full h-auto rounded-lg shadow-xl ring-1 ring-slate-900/10 dark:ring-white/10 transition-transform duration-500 group-hover:scale-[1.02]">
+                            </div>
+                            <div class="md:col-span-3 p-8">
+                                <div class="flex justify-between items-start mb-6">
+                                    <div
+                                        class="p-4 bg-slate-100 dark:bg-slate-800 rounded-xl text-primary-600 dark:text-primary-400 group-hover:bg-primary-600 dark:group-hover:bg-primary-400 group-hover:text-white dark:group-hover:text-slate-900 transition-all shadow-sm">
+                                        <i data-lucide="activity" class="w-8 h-8"></i>
+                                    </div>
+                                    <span
+                                        class="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-primary-700 dark:text-primary-400 text-xs font-medium rounded-full border border-slate-200 dark:border-slate-700">
+                                        Capstone &middot; DAMO 699
+                                    </span>
+                                </div>
+
+                                <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                                    Emergency Department Length-of-Stay Analytics
+                                </h3>
+
+                                <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6">
+                                    A full-stack analytics platform over 19 fiscal years of CIHI NACRS data &mdash;
+                                    10,685 aggregate records representing roughly 175.8 million emergency department
+                                    visits. Frequency-weighted non-parametric testing across five pre-registered
+                                    hypotheses identified inpatient access block as the dominant driver of length of
+                                    stay (10.6 hours for admitted patients against 2.5 hours for non-admitted),
+                                    alongside a 19-year volume forecast and an original resource-burden index. Built
+                                    on a React and FastAPI stack and deployed to AWS EC2 through a Dockerised CI/CD
+                                    pipeline.
+                                </p>
+
+                                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
+                                    <div class="flex flex-col"><span class="text-lg font-bold text-slate-900 dark:text-white">175.8M</span><span class="text-xs text-slate-500 dark:text-slate-400">ED visits analysed</span></div>
+                                    <div class="flex flex-col"><span class="text-lg font-bold text-slate-900 dark:text-white">19</span><span class="text-xs text-slate-500 dark:text-slate-400">fiscal years</span></div>
+                                    <div class="flex flex-col"><span class="text-lg font-bold text-slate-900 dark:text-white">5/5</span><span class="text-xs text-slate-500 dark:text-slate-400">hypotheses verified</span></div>
+                                    <div class="flex flex-col"><span class="text-lg font-bold text-slate-900 dark:text-white">299</span><span class="text-xs text-slate-500 dark:text-slate-400">automated tests</span></div>
+                                </div>
+
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span class="text-xs font-medium text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-800 px-2.5 py-1 rounded border border-slate-200 dark:border-slate-700">Python</span>
+                                    <span class="text-xs font-medium text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-800 px-2.5 py-1 rounded border border-slate-200 dark:border-slate-700">FastAPI</span>
+                                    <span class="text-xs font-medium text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-800 px-2.5 py-1 rounded border border-slate-200 dark:border-slate-700">React</span>
+                                    <span class="text-xs font-medium text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-800 px-2.5 py-1 rounded border border-slate-200 dark:border-slate-700">TypeScript</span>
+                                    <span class="text-xs font-medium text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-800 px-2.5 py-1 rounded border border-slate-200 dark:border-slate-700">SQLite</span>
+                                    <span class="text-xs font-medium text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-800 px-2.5 py-1 rounded border border-slate-200 dark:border-slate-700">Docker</span>
+                                    <span class="text-xs font-medium text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-800 px-2.5 py-1 rounded border border-slate-200 dark:border-slate-700">AWS</span>
+                                </div>
+
+                                <a href="https://github.com/Adwrells/Capstone_Project-DAMO-6994-" target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="inline-flex items-center gap-2 px-6 py-3 bg-primary-600 dark:bg-primary-400 text-white dark:text-slate-900 font-bold rounded-lg hover:bg-primary-700 dark:hover:bg-primary-300 transition-all group/btn">
+                                    View on GitHub
+                                    <svg class="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-github"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
 
                     <!-- Toronto Crime Indicators Analysis -->
                     <div
